@@ -2936,7 +2936,8 @@ div#profile-signature ul{
       }
     }
     .code-box,
-    .hide-box {
+    .hide-box,
+    .answer-box {
       padding-top: 0;
     }
     .spoiler-box {
@@ -2996,6 +2997,7 @@ div#profile-signature ul{
   }
   span.highlight-text { // override extra post-content .h
     background-color: var(--theme-contrast-color);
+    padding:0px 3px;
     @if ($contrast-post or $contrast-topic) {
       color: var(--theme-topic-bg);
     } @else {
@@ -3142,11 +3144,12 @@ div#profile-signature ul{
 .quote-box,
 blockquote,
 .post-content,
-.post-content td {
-  > p:last-of-type {
+.post-content td,
+[id^="block"] {
+  > p:last-child {
     margin-bottom: 0;
   }
-  > p:first-of-type {
+  > p:first-child {
     margin-top: 0;
   }
   p:empty {
@@ -4069,6 +4072,7 @@ div.pun-modal.move_posts_form {
         //border-radius: var(--border-radius-xs);
         //font-family: var(--badge-font);
         font-size: .82rem;
+        letter-spacing: -0.012em;
         //font-size: var(--smaller-font-size);
         //line-height: 1.2;
         text-transform: uppercase;
@@ -4106,7 +4110,7 @@ div.pun-modal.move_posts_form {
       &.pa-fld#{map-get($pa-flds, lz)} { // lz
         position: relative;
         //margin: 0 -.7rem 1rem;
-        padding: 0 1rem 0;
+        padding: 0 .5rem 0;
         //border-bottom: var(--general-border);
         font-family: var(--badge-font); // taylor
         //font-size: 1rem;
@@ -4583,7 +4587,7 @@ div#form-buttons {
   //  content: "\ea61";
   //  content: "\ef9b"; //fi-rr-text-size
   //}
-  #floatbut:before {
+  #button-float:before {
     //content: "\f0ea";
     content: "\e965";//fi-rr-layout-fluid
   }
@@ -5047,6 +5051,11 @@ div#uploaded-images {
         margin-top: calc(-1 * var(--control-link-size));
       }
     }
+    #float-area {
+      width: 240px;
+      right: 50%;
+      transform: translateX(50%);
+    }
     #table-area {
       table td {
         padding: 0;
@@ -5284,10 +5293,6 @@ a.pla {
 }
 
 /*** custom blocks ***/
-
-.container#float-area {
-  right: unset;
-}
 
 .custom_tag_float {
   &[data-float="left"] {
@@ -5635,6 +5640,104 @@ a.pla {
   }
 }
 
+.silent-quote {
+  > p {
+    font-style: italic;
+    &:before {
+      content: "\00BB";
+      font-style: normal;
+      font-weight: bold;
+      display: inline;
+      margin-right: 0.25em;
+    }
+  }
+  + p {
+    margin-top: .4em;
+  }
+}
+
+.epi {
+  &_1 {
+    width: 650px;
+    max-width: 95%;
+    padding-top: 20px;
+    margin: 0 auto;
+    p {
+      margin: 1px 0;
+    }
+  }
+  &_pic_1 {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  &_name_1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: var(--badge-font);
+    font-size: 18px;
+  }
+  &_char_1 {
+    text-transform: lowercase;
+    text-align: center;
+    font-size: .8em;
+    margin-bottom: 3px;
+  }
+  &_desc_1 {
+    margin: 0 auto 20px;
+  }
+}
+
+.post {
+  --highlight-bg: #70875b;
+  --highlight-color: #e8e5d6;
+  .temporary {
+    width: 250px;
+    max-width: 90%;
+    background: var(--highlight-bg);
+    color: var(--highlight-color);
+    text-align: center;
+    margin: 0 auto;
+    font-family: var(--badge-font);
+    padding: 3px 0px;
+    font-size: 15px;
+    &:before {
+      content: "Персонаж нужен временно!";
+    }
+  }
+  .accio {
+    width: 100px;
+    background: var(--highlight-bg);
+    text-align: center;
+    margin: auto 5px -5px auto;
+    color: var(--highlight-color);
+    a {
+      color: var(--highlight-color);
+      font-family: var(--badge-font);
+      font-size: 16px;
+      display: inline-block;
+      margin:0;
+      padding: 2px 0px 4px 0px;
+    }
+  }
+}
+
+.charname,
+.fandom {
+  width: auto;
+  margin: 2px auto 2px auto;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
+
+.charname {
+  font-family: var(--h-font2);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+
 /*** end custom blocks ***/
 
 .site-footer {
@@ -5807,6 +5910,10 @@ a.pla {
   .heading {
     font-size: 12px;
     font-weight: 600;
+    font-family: var(--h-font);
+    a {
+      font-family: var(--h-font);
+    }
   }
   &-links {
     grid-area: announce-links;
