@@ -6290,6 +6290,9 @@ form[id="messages"] {
   font-family: var(--badge-font);
   letter-spacing: var(--letter-spacing-badge);
   height: 2.45rem;
+  > strong {
+    color: var(--main-color);
+  }
   .messages-container & {
     display: none;
   }
