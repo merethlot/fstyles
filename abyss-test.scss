@@ -4547,7 +4547,8 @@ div#uploaded-images {
   }
 }
 
-[id="profile"] {
+[id="profile"],
+[id="change_pass"] {
   @if ($forum-rounded) {
     --theme-input-bg-color: var(--main-bg-color);
   }
@@ -6291,7 +6292,7 @@ form[id="messages"] {
   letter-spacing: var(--letter-spacing-badge);
   height: 2.45rem;
   > strong {
-    color: var(--main-color);
+    color: color-mix(in srgb, var(--main-color) 80%, transparent);
   }
   .messages-container & {
     display: none;

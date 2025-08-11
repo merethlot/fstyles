@@ -1871,7 +1871,7 @@ span.bubble {
         background: transparent;
         position: absolute;
         z-index: 2;
-        margin-top: 2px;
+        //margin-top: 2px;
         margin-left: 8px;
         display: inline-block;
         img {
@@ -1880,7 +1880,7 @@ span.bubble {
         &:before {
           @include fi-fontface(ss);
           content: "\e976"; //fi-ss-leave
-          color: var(--gradient-text-color2);
+          //color: var(--gradient-text-color2);
         }
         @include media-breakpoint-down(md) {
           margin-top: 0;
@@ -3294,6 +3294,9 @@ blockquote,
       margin: 0;
       padding: 4px;
       width: 100%;
+      a {
+        color: var(--announce-color);
+      }
     }
   }
   .status_useravatar {
@@ -5852,19 +5855,28 @@ a.pla {
   //display: flex;
   display: grid;
   grid-template-areas:
-  'announce-links announce-logo'
-  'announce-top announce-top'
-  'announce-posts announce-posts';
+  'announce-links announce-logo announce-news'
+  'announce-top announce-top announce-news'
+  'announce-posts announce-posts announce-rehab';
   //'announce-links announce-links announce-links';
-  grid-template-columns: 150px auto;
-  grid-template-rows: 130px auto auto;
+  grid-template-columns: 150px 460px auto;
+  grid-template-rows: 130px 64px auto;
   background: var(--announce-bg);
 
   text-transform: uppercase;
   color: var(--announce-color);
   font-family: var(--h-font2);
+
   a {
     color: var(--header-link-color);
+  }
+  @include media-breakpoint-down(lg) {
+    grid-template-areas:
+  'announce-links announce-logo announce-news'
+  'announce-top announce-top announce-news'
+  'announce-posts announce-posts announce-news';
+    grid-template-columns: 150px 360px auto;
+    grid-template-rows: 130px 64px auto;
   }
   @include media-breakpoint-down(md) {
     padding: .5rem;
@@ -5927,12 +5939,20 @@ a.pla {
     align-items: flex-end;
     font-family: var(--h-font);
     column-gap: 6px;
+    @include media-breakpoint-down(lg) {
+      column-gap: 0;
+      font-size: 50px;
+    }
     @include media-breakpoint-down(md) {
       font-size: 40px;
+      column-gap: 6px;
     }
     &-start {
       font-size: 95px;
-      color: rgba(#fff, 0.4);
+      color: rgba(184,184,170, 0.7);
+      @include media-breakpoint-down(lg) {
+        font-size: 80px;
+      }
       @include media-breakpoint-down(md) {
         font-size: 65px;
       }
@@ -5948,6 +5968,9 @@ a.pla {
     gap: 40px;
     padding-left: 68px;
     margin-top: -15px;
+    @include media-breakpoint-down(lg) {
+      margin-top: -5px;
+    }
     @include media-breakpoint-down(md) {
       padding-left: 1rem;
       padding-bottom: 0.6rem;
@@ -6003,7 +6026,7 @@ a.pla {
   &-posts {
     grid-area: announce-posts;
     padding-left: 20px;
-    margin-top: 14px;
+    margin-top: 20px;
     @include media-breakpoint-down(md) {
       display: none;
     }
@@ -6012,7 +6035,68 @@ a.pla {
       margin-top: 0.5em;
     }
   }
-
+  &-news {
+    grid-area: announce-news;
+    align-content: flex-end;
+    @include media-breakpoint-down(lg) {
+      align-content: center;
+    }
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+    .heading {
+      text-align: right;
+      font-size: 15px;
+    }
+    .news-wrapper {
+      padding-bottom: 24px;
+      padding-right: var(--pun-padding);
+      max-width: 325px;
+    }
+    .news-text {
+      //max-height: 100px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--common-secondary-color) 85%, transparent);
+      color: var(--main-color);
+      padding: 10px;
+      font-size: 13px;
+      line-height: 16px;
+      hyphens: auto;
+      text-transform: none;
+      font-family: var(--base-font);
+      a {
+        font-weight: bold;
+        color: var(--common-link-color);
+      }
+    }
+  }
+  &-rehab {
+    $sprite-s: 64px;
+    --sprite: url("https://forumstatic.ru/files/0012/04/67/60591.png");
+    --sprite-hover: url("https://forumstatic.ru/files/0012/04/67/19209.png");
+    grid-area: announce-rehab;
+    justify-items: flex-end;
+    padding-right: 17px;
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+    .rehab {
+      height:60px;
+    }
+    .reh {
+      display: inline-block;
+      height: 55px;
+      aspect-ratio: 1;
+    }
+    @for $i from 1 to 6 {
+      #reh_#{$i} {
+        background: var(--sprite) no-repeat #{$sprite-s * (1 - $i)} 0;
+        &:hover {
+          background: var(--sprite-hover) no-repeat #{$sprite-s * (1 - $i)} 0;
+        }
+      }
+    }
+  }
 }
 
 .act-content {
@@ -6096,6 +6180,9 @@ a.pla {
     text-transform: uppercase;
     font-size: 11px;
     color: var(--action-box-header-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     @include media-breakpoint-down(md) {
       font-size: 12px;
       overflow: hidden;
@@ -6438,9 +6525,10 @@ div.hvStickerPackModal {
   @extend %popup-container-default;
   border: var(--general-border);
   .hvStickerPackModalContent {
-    background-color: var(--theme-input-bg-color);
+    background-color: var(--theme-topic-bg);
     color: var(--theme-input-color);
-    border: var(--control-element-border);
+    border: 4px solid var(--theme-topic-bg);
+    outline: 2px solid var(--theme-topic-quote-bg);
     border-radius: var(--border-radius-input);
     padding: .4rem .6rem;
     .hvStickerPackItem {
@@ -6824,10 +6912,10 @@ div.hvStickerPackModal {
   }
   #navlogout & {
     top: 12px;
-    margin-left: -30px;
+    margin-left: var(--announce-padding);
     margin-right: 0px;
-    right: 0px;
-    transform: translateX(-50%);
+    right: 0;
+    transform: translateX(-100%);
   }
   #pun-navlinks & {
     @include media-breakpoint-down(md) {
@@ -7116,3 +7204,6 @@ i#tuser {
   }
 }
 
+#statistic-other {
+display:none;
+}
