@@ -500,6 +500,7 @@ $table-sels: thead, tbody, tr, td, th;
   font-weight: 500;
   line-height: 1.25;
   transition: all .3s ease-out;
+  cursor: pointer;
   &:hover,
   &:focus {
     color: var(--control-element-color);
@@ -4979,6 +4980,62 @@ a.pla {
   }
 }
 
+.bingo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  background: var(--common-pattern);
+  @include media-breakpoint-down(md) {
+    margin: 0 -22px;
+  }
+  .task,
+  .done {
+    aspect-ratio: 1;
+    border: 5px solid var(--category-bg-color);
+    padding: 10px;
+    contain: size;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    overflow: auto;
+    @include media-breakpoint-down(md) {
+      border-width: 1px;
+      padding: 4px;
+    }
+    > p {
+      width: 100%;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      border-radius: var(--border-radius);
+      padding: 10px;
+      text-shadow: 1px 1px var(--general-border-color);
+      font-family: var(--h-font);
+      font-size: 16px;
+      @include media-breakpoint-down(md) {
+        padding: 4px;
+        font-size: 13px;
+      }
+      img.postimg {
+        max-height: 130px;
+        margin: 0;
+      }
+    }
+  }
+  .task {
+    background: var(--theme-input-bg-color);
+  }
+  .task[data-done="done"],
+  .done {
+    background: transparent;
+    > p {
+      background: var(--common-secondary-color);
+      box-shadow: var(--block-shadow);
+    }
+  }
+}
+
 [class^="timeline-badge"] {
   position: absolute;
   right: 1px;
@@ -5261,7 +5318,7 @@ a.pla {
   //'announce-links announce-search announce-logo announce-activists announce-quotes';
   //'announce-links announce-links announce-links';
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 40px 120px 70px;
+  grid-template-rows: 44px 120px 70px;
   background: var(--announce-bg);
   padding: 0 var(--pun-padding);
   @if $clipped-announce {
@@ -5409,21 +5466,27 @@ a.pla {
     grid-area: announce-news;
     display: flex;
     gap: 0.5rem;
-    justify-content: flex-end;
+    //justify-content: flex-end;
     align-self: flex-end;
-    scroll-padding: 0.5rem;
+    //scroll-padding: 0.5rem;
     scroll-snap-type: x mandatory;
     min-width: 0;
-    scroll-snap-align: end;
+    //scroll-snap-align: end;
+
+    overflow: auto;
+    padding: 0 0 4px;
     @include media-breakpoint-down(md) {
-      justify-content: flex-start;
+      //justify-content: flex-start;
       align-self: center;
-      overflow: auto;
-      padding: 0 0 4px;
+    }
+    .btn {
       scroll-snap-align: start;
     }
     .btn.new:not(:hover) {
       background: var(--common-accent-color);
+    }
+    > a:first-child {
+      margin-left: auto;
     }
   }
   //&-search {
@@ -6771,7 +6834,7 @@ li.pa-fld4 {
 
 #tmpl_back-button,
 #tmpl_get-code-button {
-	width: 128px;
+	width: 140px;
 	text-transform: lowercase;
   @include simple-button;
   margin-bottom: 0.5rem;
@@ -6791,9 +6854,12 @@ li.pa-fld4 {
 }
 
 #targetForm { // from ppage-block
-  border: 2px solid var(--primary-dark-color);
-  border-radius: var(--border-radius-xs);
+  //border: 2px solid var(--primary-dark-color);
+  //border-radius: var(--border-radius-xs);
   box-shadow: var(--block-shadow);
+  @if ($forum-bordered) {
+    @extend %gradient-border;
+  }
   table {
     @include block-table;
     display: block;
@@ -6835,13 +6901,16 @@ li.pa-fld4 {
 
 
 #templateFormName { // from ppage-header
-  background: var(--primary-dark-color);
+  //background: var(--primary-dark-color);
+  //color: var(--primary-light-color);
+  //font-family: var(--h-font);
+  @extend %h2-header;
+  margin: 0;
+  background-image: var(--category-header-bg-image);
   padding: 1rem 0.5rem;
-  color: var(--primary-light-color);
-  font-family: var(--h-font);
 }
 
-.tmpl_template { // from character-name
+.tmpl_template { // from category
   font-family: var(--h-font);
   display: flex;
   gap: 0.25em;
@@ -6849,9 +6918,16 @@ li.pa-fld4 {
   justify-content: center;
   //grid-column: span 2;
   text-align: center;
-  background: var(--primary-dark-color) var(--announce-bg);
-  color: var(--common-link-color-bright);
-  padding: 1rem 0.5rem;
+  //background: var(--primary-dark-color) var(--announce-bg);
+  //color: var(--control-element-color);
   cursor: pointer;
+  @extend %h2-header;
+  padding: 1rem 0.5rem;
+  margin: 0;
+}
+@for $i from 2 to 0 {
+  .tmpl_template:nth-child(#{$i}) {
+    @include header-bg($i, 2, var(--category-header-bg-image));
+  }
 }
 /* END styles for FILL CODE AS FORM*/
