@@ -4824,6 +4824,7 @@ div#uploaded-images {
   a {
     @include simple-button;
     @include small-button;
+    opacity: .8;
     //@include raising-button;
     //&:after {
     //  content: " | ";
@@ -6798,10 +6799,59 @@ li.pa-fld4 {
   vertical-align: middle;
   color: var(--common-accent-color);
   &:after {
-    @include fi-fontface;
+    @include fi-fontface(ss);
+    content: "\e85a"; //fi-ss-hockey-mask
     content: "\eee2"; //fi-rr-star-sharp-half-stroke
   }
 }
+
+.role-wanted {
+  vertical-align: middle;
+  color: var(--common-accent-color);
+  &:after {
+    @include fi-fontface(ss);
+    content: "\e845"; //fi-ss-heart-partner-handshake
+  }
+}
+
+.role-loved {
+  vertical-align: middle;
+  color: var(--common-contrast-color);
+  &:after {
+    @include fi-fontface(ss);
+    content: "\e069"; //fi-ss-anatomical-heart
+    content: "\e83c"; //fi-ss-heart
+  }
+}
+
+.tclcon-tags > span {
+  &:not(:empty) {
+    font-size: 11px;
+    font-family: var(--badge-font);
+    color: var(--control-element-color);
+    box-shadow: var(--control-element-box-shadow);
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 2px;
+  }
+  &.explicit {
+    background: #607D8B;
+  }
+  &.original {
+    background: #335f35;
+  }
+  &.fandom {
+    background: #65687d;
+  }
+  &.au {
+    background: #93669b;
+  }
+  #pun:not(.isadmin) & {
+    display: none;
+  }
+}
+
+
 
 .container#float-area {
   right: unset;
