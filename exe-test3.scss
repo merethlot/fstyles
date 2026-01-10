@@ -5412,6 +5412,12 @@ a.pla {
   //padding: var(--tmln-gap-y) var(--tmln-gap-x);
   position: relative;
   font-weight: 300;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, minmax(60px, 1fr));
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+  }
   &:before {
     top: 0;
     bottom: 0;
@@ -5450,26 +5456,30 @@ a.pla {
     @extend %default-header;
   }
   &-item {
-    margin-bottom: var(--tmln-gap-y);
+    margin-top: var(--tmln-gap-y);
     position: relative;
-    width: 50%;
-    float: left;
-    clear: left;
-    @extend %clearfix;
+    grid-row: span 3;
+    //width: 50%;
+    //float: left;
+    //clear: left;
+    //@extend %clearfix;
     @include media-breakpoint-down(md) {
       margin-bottom: 0;
       position: relative;
       width: 100%;
-      float: none;
+      //float: none;
       padding-left: var(--tmln-gap-x);
+      grid-row: auto;
     }
     &:nth-of-type(even) {
-      float: right;
-      clear: right;
+      //float: right;
+      //clear: right;
       margin-top: var(--tmln-gap-y);
+      grid-column: 2;
       @include media-breakpoint-down(md) {
-        float: none;
+        //float: none;
         margin: var(--tmln-gap-x) 0;
+        grid-column: auto;
       }
       [class^="timeline-badge"] {
         left: -1px;
@@ -5490,7 +5500,11 @@ a.pla {
       }
     }
     &:nth-of-type(2) {
-      margin-top: calc(2 * var(--tmln-gap-y));
+      //margin-top: calc(2 * var(--tmln-gap-y));
+      @include media-breakpoint-up(md) {
+        margin-top: 0;
+        grid-row: 2 / span 3;
+      }
     }
   }
   &-badge {
@@ -7310,12 +7324,32 @@ li.pa-fld4 {
   }
 }
 
+.role-search {
+  vertical-align: middle;
+  color: var(--common-link-color);
+  &:after {
+    @include fi-fontface(ss);
+    content: "\e1ce"; //fi-ss-bolt
+  }
+}
+
 .bullet-tree {
   vertical-align: middle;
   color: var(--common-accent-color);
   &:after {
     @include fi-fontface(ss);
     content: "\f03e"; // fi-ss-tree-christmas
+  }
+}
+
+.icon-restricted {
+  vertical-align: text-top;
+  color: var(--common-accent-color);
+  font-size: 1.2em;
+  margin-left: .25em;
+  &:after {
+    @include fi-fontface(rr);
+    content: "\e03a"; // fi-rr-age-restriction-eighteen
   }
 }
 
