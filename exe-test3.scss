@@ -943,7 +943,7 @@ html, html * {
   // winter special
   --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
   url("https://forumstatic.ru/files/001c/56/64/76198.webp?v=1");
-  --pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/60184.webp?v=1);
+  //--pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/60184.webp?v=1);
 
   --common-pattern: url(https://forumstatic.ru/files/001c/56/64/15901.webp);
   --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/11787.webp);
@@ -1023,11 +1023,12 @@ html, html * {
   //                 url("https://forumstatic.ru/files/001c/56/64/81698.webp?v=1");
   // winter special
   --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, #5e2a05 75%, transparent) 50%, transparent 100%), url(https://forumstatic.ru/files/001c/56/64/99857.webp?v=1);
-  --pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/80744.webp?v=1);
+  //--pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/80744.webp?v=1);
 
   //--common-pattern: url(https://forumstatic.ru/files/001c/56/64/41413.webp);
   // winter special
   --common-pattern: url(https://forumstatic.ru/files/001c/56/64/81023.webp);
+
   --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/95610.webp);
   //--announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/85454.webp); //dark
   --category-header-bg-image: url(https://forumstatic.ru/files/001c/56/64/53855.webp);
@@ -1113,7 +1114,7 @@ html, html * {
   --body-bg-image: var(--common-pattern);
   //Winter special
   --body-bg-image: url("https://forumstatic.ru/files/001c/56/64/63365.webp?v=1");
-  --pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/94839.webp?v=1);
+  //--pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/94839.webp?v=1);
   --pa-online-symbol: "\eb30"; //fi-ss-ornament
   //--body-bg-size: auto;
 
@@ -7146,9 +7147,42 @@ div.hvStickerPackModal {
 
 /*** vtl custom profile bg ***/
 
-li.pa-fld4 {
-  display: none;
-  font-size: 0;
+.post-author {
+  ul li.pa-fld5 {
+    display: none;
+  }
+  &.has-custom-badge {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--border-radius);
+      border: var(--general-border);
+      @include media-breakpoint-up(md) {
+        backdrop-filter: blur(2px) contrast(0.9) brightness(0.9);
+      }
+    }
+  }
+  ul li.pa-fld4 {
+    display: none;
+    font-size: 0;
+    &.custom-bg-badge {
+      @include media-breakpoint-up(md) {
+        display: grid;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 60px;
+        border-radius: var(--border-radius);
+        z-index: 1;
+        margin-bottom: 10px;
+        box-shadow: var(--block-shadow);
+        //opacity: .8;
+      }
+    }
+  }
 }
 
 #choose-bg-wrap {
@@ -7974,35 +8008,35 @@ li.pa-fld4 {
 }
 
 
-[data-theme="brown"] #pun-about {
-  @include media-breakpoint-up(md) {
-    &:after {
-      background-image: url(https://forumstatic.ru/files/001c/56/64/16118.webp?v=1);
-      width: 400px;
-      height: 55px;
-    }
-  }
-}
-
-[data-theme="dark"] #pun-about {
-  @include media-breakpoint-up(md) {
-    &:after {
-      background-image: url(https://forumstatic.ru/files/001c/56/64/25720.webp?v=1);
-      width: 200px;
-      height: 38px;
-    }
-  }
-}
-
-[data-theme]:not([data-theme="dark"]) #pun-stats {
-  background-image: url(https://forumstatic.ru/files/001c/56/64/59323.png?v=1);
-  background-repeat: no-repeat;
-  background-position: center 41px;
-  background-size: 100px;
-  .statscon {
-    background-color: transparent;
-  }
-}
+//[data-theme="brown"] #pun-about {
+//  @include media-breakpoint-up(md) {
+//    &:after {
+//      background-image: url(https://forumstatic.ru/files/001c/56/64/16118.webp?v=1);
+//      width: 400px;
+//      height: 55px;
+//    }
+//  }
+//}
+//
+//[data-theme="dark"] #pun-about {
+//  @include media-breakpoint-up(md) {
+//    &:after {
+//      background-image: url(https://forumstatic.ru/files/001c/56/64/25720.webp?v=1);
+//      width: 200px;
+//      height: 38px;
+//    }
+//  }
+//}
+//
+//[data-theme]:not([data-theme="dark"]) #pun-stats {
+//  background-image: url(https://forumstatic.ru/files/001c/56/64/59323.png?v=1);
+//  background-repeat: no-repeat;
+//  background-position: center 41px;
+//  background-size: 100px;
+//  .statscon {
+//    background-color: transparent;
+//  }
+//}
 
 .post:not[data-user-id="2"] {
   .post-content {
@@ -8024,7 +8058,13 @@ li.pa-fld4 {
 
 [data-theme]:not([data-theme="pink"]) .announce {
   .garland {
+    // winter special not for pink
     background: url(https://forumstatic.ru/files/001c/56/64/73420.webp?v=1) no-repeat;
+    // st valentines special not for pink, fall, blue
+    //background: url(https://forumstatic.ru/files/001c/56/64/66294.webp) no-repeat;
+    //background-size: cover;
+    //z-index: -1;
+
     mix-blend-mode: screen;
     position: absolute;
     top: 0;
@@ -8459,3 +8499,841 @@ body.random-decorations {
 //   }
 // }
 
+// valentine spec
+
+
+/*** СЕРДЕЧКИ ***/
+.hearts-container {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  inset: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 12px; /* Уменьшили в 2 раза */
+  bottom: 0;
+  opacity: 0;
+  filter: drop-shadow(0 0 2px currentColor);
+  z-index: 101;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform-origin: center;
+}
+
+@keyframes heartFly1 {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(-30px) translateX(-2px) scale(0.8) rotate(5deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-80px) translateX(-5px) scale(1) rotate(8deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-160px) translateX(-7px) scale(1) rotate(4deg);
+  }
+  70% {
+    opacity: 0.6;
+    transform: translateY(-240px) translateX(-12px) scale(0.9) rotate(8deg);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(-320px) translateX(-15px) scale(0.7) rotate(3deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-400px) translateX(0) scale(0.5) rotate(0deg);
+  }
+}
+
+@keyframes heartFly2 {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(-40px) translateX(-10px) scale(0.8) rotate(-8deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-100px) translateX(8px) scale(1) rotate(-15deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-180px) translateX(-10px) scale(1) rotate(-5deg);
+  }
+  70% {
+    opacity: 0.5;
+    transform: translateY(-260px) translateX(5px) scale(0.8) rotate(-12deg);
+  }
+  90% {
+    opacity: 0.2;
+    transform: translateY(-340px) translateX(-2px) scale(0.6) rotate(-5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-420px) translateX(0) scale(0.4) rotate(0deg);
+  }
+}
+
+@keyframes heartFly3 {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 0.7;
+    transform: translateY(-35px) translateX(8px) scale(0.7) rotate(10deg);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateY(-90px) translateX(-5px) scale(0.9) rotate(-8deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-170px) translateX(10px) scale(1) rotate(12deg);
+  }
+  70% {
+    opacity: 0.4;
+    transform: translateY(-250px) translateX(-5px) scale(0.8) rotate(-10deg);
+  }
+  90% {
+    opacity: 0.1;
+    transform: translateY(-330px) translateX(3px) scale(0.6) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-410px) translateX(0) scale(0.4) rotate(0deg);
+  }
+}
+
+@keyframes heartFly4 {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.4) rotate(0deg);
+  }
+  15% {
+    opacity: 0.9;
+    transform: translateY(-50px) translateX(4px) scale(0.7) rotate(3deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-120px) translateX(5px) scale(0.9) rotate(-2deg);
+  }
+  65% {
+    opacity: 0.7;
+    transform: translateY(-220px) translateX(6px) scale(1) rotate(4deg);
+  }
+  85% {
+    opacity: 0.3;
+    transform: translateY(-320px) translateX(8px) scale(0.6) rotate(1deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-400px) translateX(10px) scale(0.3) rotate(0deg);
+  }
+}
+
+/* Цвета сердечек */
+
+.heart.pink-1 { color: #ff69b4; } /* Hot pink */
+.heart.pink-2 { color: #ff1493; } /* Deep pink */
+.heart.pink-3 { color: #ffb6c1; } /* Light pink */
+.heart.pink-4 { color: #db7093; } /* Pale violet red */
+.heart.pink-5 { color: #ffc0cb; } /* Pink */
+.heart.pink-6 { color: #e75480; } /* Dark pink */
+.heart.pink-7 { color: #ff77aa; } /* Coral pink */
+.heart.pink-8 { color: #f4a9c7; } /* Pastel pink */
+.heart.pink-9 { color: #ffafcc; } /* Baby pink */
+.heart.pink-10 { color: #ff85a2; } /* Soft pink */
+
+@for $i from 1 through 10 {
+  .heart.pink-#{$i} {
+    color: color-mix(in srgb, var(--tag-explicit-bg) #{$i * 10%}, transparent);
+  }
+}
+
+// Переменные
+$primary-color: #ff3366;
+$secondary-color: #ff6b9d;
+$accent-color: #ffafbd;
+$light-color: #fff5f7;
+$dark-color: #333;
+$shadow-color: rgba(0, 0, 0, 0.3);
+$gold-color: #ffd700;
+
+// Цвета для градиентов
+$envelope-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
+$envelope-flap-gradient: linear-gradient(135deg, darken($primary-color, 10%), darken($secondary-color, 10%));
+$card-header-gradient: linear-gradient(90deg, $primary-color, $secondary-color, $primary-color);
+
+// Миксины
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin card-shadow {
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba($primary-color, 0.1);
+}
+
+@mixin envelope-shadow {
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    0 5px 15px rgba($primary-color, 0.3);
+}
+
+@mixin transition($property: all, $duration: 0.3s, $easing: ease) {
+  transition: $property $duration $easing;
+}
+
+@mixin text-shadow($color: rgba(0, 0, 0, 0.2)) {
+  text-shadow: 0 2px 4px $color;
+}
+
+// Базовые стили
+.valentine-surprise-heart {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 10000;
+  animation: heart-pulse 2s infinite;
+  filter: drop-shadow(0 0 10px rgba($primary-color, 0.5));
+  bottom: 20px;
+  right: 20px;
+  user-select: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: $primary-color;
+      @include transition(fill, 0.3s);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    animation: heart-pulse-fast 1s infinite;
+  }
+
+  &.clicked {
+    animation: heartbeat 0.5s infinite;
+  }
+}
+
+.envelope {
+  &-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10002;
+    @include flex-center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(opacity visibility, 0.3s);
+    &.fi-ss-heart {
+      color: #ff3366;
+    }
+    &.fi-ss-star {
+      color: #ffd700;
+    }
+    &.fi-ss-sparkle {
+      color: #ffdd00;
+    }
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    animation: overlay-fade-in 0.5s ease-out forwards;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  position: relative;
+  width: 320px;
+  height: 220px;
+  z-index: 2;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  pointer-events: none;
+  overflow: hidden;
+  padding-top: 400px;
+  background: var(--body-bg-color);
+  background: linear-gradient(0deg, var(--body-bg-color) 0%, var(--body-bg-color) 55%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0) 100%);
+
+  &.initial-drop {
+    animation: envelope-drop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  &-base {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    border-top: 115px solid transparent;
+    border-right: 160px solid var(--theme-input-bg-color);
+    border-bottom: 105px solid color-mix(in srgb, var(--theme-input-bg-color) 30%, var(--primary-theme-bg-color));
+    border-left: 160px solid color-mix(in srgb, var(--theme-input-bg-color) 50%, var(--primary-theme-bg-color));
+    z-index: 3;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  &-flap {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 220px;
+    background: color-mix(in srgb, var(--body-bg-color) 60%, var(--primary-theme-bg-color));
+    clip-path: polygon(0% 0%, 100% 0%, 50% 55%);
+    transform-origin: top;
+    transition: transform 0.8s linear;
+    z-index: 3;
+  }
+  &-card {
+    position: absolute;
+    width: 92%;
+    bottom: 5px;
+    left: 4%;
+    @extend %popup-container-default;
+    transform: translateY(0);
+    overflow: hidden;
+    pointer-events: auto;
+    height: 400px;
+    z-index: 1;
+    transition: all .4s ease-in-out .6s;
+    top: 100%;
+    &.with-image {
+      .card-image-container {
+        display: block;
+      }
+    }
+  }
+  &.open {
+    pointer-events: auto;
+
+    .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .envelope-card {
+      z-index: 2;
+      top: 0;
+    }
+
+    .envelope-decoration {
+      animation: float-away 2s ease-out forwards;
+    }
+  }
+  &.unique {
+    .card-ribbon {
+      display: block;
+    }
+  }
+  &.with-image {
+    .card-image-container {
+      display: block;
+    }
+  }
+}
+
+.card {
+  &-content {
+    z-index: 1;
+  }
+  &-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--common-header-color);
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  &-message {
+    font-size: 1rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 80px;
+    padding: 0 10px;
+  }
+
+  &-signature {
+    font-style: italic;
+    color: var(--common-muted-color);
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    border-top: 1px dashed var(--general-border-color);
+    width: 100%;
+    text-align: right;
+  }
+  &-image-container {
+    display: none;
+    position: absolute;
+    left: var(--base-gap);
+    opacity: .9;
+    margin-top: -60px;
+
+    .card-image {
+      max-width: 100px;
+      object-fit: contain;
+      aspect-ratio: 1;
+    }
+  }
+  &-ribbon {
+    position: absolute;
+    top: 10px;
+    right: -31px;
+    width: 110px;
+    height: 24px;
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    span {
+      transform: rotate(-45deg);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 26px;
+      letter-spacing: .06em;
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+  // Декоративные элементы на открытке
+  .card-decoration {
+    position: absolute;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 30px;
+    color: $primary-color;
+    animation: decoration-float 6s ease-in-out infinite;
+
+    &.decoration-heart-1 {
+      top: 15px;
+      left: 15px;
+      transform: rotate(-10deg);
+      animation-delay: 0s;
+    }
+
+    &.decoration-heart-2 {
+      bottom: 20px;
+      right: 20px;
+      transform: rotate(15deg);
+      animation-delay: 2s;
+    }
+
+    &.decoration-sparkle-1 {
+      top: 30%;
+      left: 10%;
+      font-size: 20px;
+      animation-delay: 1s;
+    }
+
+    &.decoration-sparkle-2 {
+      bottom: 30%;
+      right: 15%;
+      font-size: 20px;
+      animation-delay: 3s;
+    }
+  }
+
+  // Декоративные сердечки вокруг конверта
+  .envelope-decoration {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+
+    &.envelope-heart-1 {
+      top: -30px;
+      left: 20px;
+      animation: float-heart-1 4s ease-in-out infinite;
+    }
+
+    &.envelope-heart-2 {
+      top: 10px;
+      right: -35px;
+      animation: float-heart-2 5s ease-in-out infinite 1s;
+    }
+
+    &.envelope-heart-3 {
+      bottom: -25px;
+      left: 50%;
+      animation: float-heart-3 4.5s ease-in-out infinite 0.5s;
+    }
+  }
+
+  // Контейнер для конфетти
+  .confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  // Частицы взрыва
+  .explosion-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10003;
+    font-size: 24px;
+    animation: particle-explode 1.2s ease-out forwards;
+  }
+
+  // Анимации
+  @keyframes heart-pulse {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 10px rgba($primary-color, 0.5));
+    }
+    50% {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 15px rgba($primary-color, 0.7));
+    }
+  }
+
+  @keyframes heart-pulse-fast {
+    0%, 100% {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 12px rgba($primary-color, 0.6));
+    }
+    50% {
+      transform: scale(1.18);
+      filter: drop-shadow(0 0 18px rgba($primary-color, 0.8));
+    }
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.25); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+  }
+
+  @keyframes overlay-fade-in {
+    from {
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+    to {
+      opacity: 1;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  @keyframes envelope-drop {
+    0% {
+      transform: translateY(-100vh) rotateX(-20deg) scale(0.8);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(30px) rotateX(5deg) scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) rotateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes envelope-open {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    30% {
+      transform: translateY(-25px) scale(1.08);
+    }
+    100% {
+      transform: translateY(-60px) scale(1);
+    }
+  }
+
+  @keyframes card-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.95) rotateX(-5deg);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-200px) scale(1) rotateX(0);
+    }
+  }
+
+  @keyframes float-away {
+    0% {
+      opacity: 0.8;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px) translateX(var(--float-x));
+    }
+  }
+
+  @keyframes decoration-float {
+    0%, 100% {
+      transform: translateY(0) rotate(var(--start-rot));
+      opacity: 0.1;
+    }
+    50% {
+      transform: translateY(-10px) rotate(calc(var(--start-rot) + 10deg));
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes float-heart-1 {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px) rotate(10deg);
+    }
+  }
+
+  @keyframes float-heart-2 {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) translateX(-5px) rotate(-5deg);
+    }
+  }
+
+  @keyframes float-heart-3 {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(20px) translateX(5px) rotate(5deg);
+    }
+  }
+
+  @keyframes particle-explode {
+    0% {
+      transform: translate(-50%, -50%) scale(0) rotate(0deg);
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(var(--tx), var(--ty)) scale(var(--scale)) rotate(var(--rot));
+      opacity: 0;
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      filter: brightness(1) drop-shadow(0 0 5px rgba($gold-color, 0.5));
+    }
+    50% {
+      transform: scale(1.2) rotate(180deg);
+      filter: brightness(1.3) drop-shadow(0 0 10px rgba($gold-color, 0.8));
+    }
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  // Состояния
+  .envelope.pre-opening {
+    animation: envelope-open 0.3s ease-out forwards;
+
+    .envelope-flap {
+      animation: flap-open 0.5s ease-out 0.3s forwards;
+    }
+  }
+
+  @keyframes flap-open {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(180deg);
+    }
+  }
+
+  // Ховер-эффекты
+  .envelope:not(.open):hover {
+    .envelope-base {
+      filter: brightness(1.1) saturate(1.2);
+      @include transition(filter, 0.3s);
+    }
+
+    .envelope-flap {
+      transform: rotateX(15deg);
+    }
+  }
+
+  // Состояния анимации
+  @keyframes envelope-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+  }
+
+  .envelope.shaking {
+      animation: envelope-shake 0.5s ease-in-out;
+  }
+
+  // Эффект свечения при активации
+  @keyframes envelope-glow {
+      0%, 100% {
+          filter: drop-shadow(0 0 20px rgba($primary-color, 0.3));
+      }
+      50% {
+          filter: drop-shadow(0 0 40px rgba($primary-color, 0.6));
+      }
+  }
+
+  .envelope.glow {
+      animation: envelope-glow 2s ease-in-out infinite;
+  }
+
+  // Адаптация существующих стилей под иконки
+  .valentine-surprise-heart {
+      .heart-icon-container {
+          @include flex-center;
+          width: 100%;
+          height: 100%;
+      }
+
+      .heart-icon {
+          font-size: 40px;
+          transition: all 0.3s ease;
+      }
+  }
+
+  .envelope-decoration,
+  .card-decoration {
+      i {
+          font-size: inherit;
+          color: inherit;
+      }
+  }
+
+  .card-title {
+      .card-title-icon {
+          margin-right: 8px;
+          vertical-align: middle;
+      }
+  }
+
+  .card-close-btn {
+      i {
+          font-size: 18px;
+          line-height: 1;
+      }
+  }
+
+  .explosion-particle {
+      .particle-icon {
+          font-size: inherit;
+          color: inherit;
+      }
+  }
+          .valentine-surprise-heart .heart-icon {
+              font-size: 40px;
+              color: #ff3366;
+              transition: all 0.3s ease;
+          }
+
+          .valentine-surprise-heart .heart-click-hint {
+              position: absolute;
+              top: -30px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: rgba(0, 0, 0, 0.8);
+              color: white;
+              padding: 4px 8px;
+              border-radius: 12px;
+              font-size: 11px;
+              white-space: nowrap;
+              opacity: 0;
+              transition: opacity 0.3s;
+              display: flex;
+              align-items: center;
+              gap: 4px;
+          }
+
+          .valentine-surprise-heart:hover .heart-click-hint {
+              opacity: 1;
+          }
+
+          .valentine-surprise-heart .heart-click-hint i {
+              font-size: 10px;
+          }
+
+          .card-title-icon {
+              margin-right: 8px;
+              color: #ff3366;
+          }
+
+          .card-ribbon {
+              display: none;
+          }
+
+          .confetti-fall {
+              animation-name: confetti-fall !important;
+          }
