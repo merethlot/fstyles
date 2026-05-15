@@ -1,3 +1,5 @@
+// ruby -rrubygems -e "gem 'sass-embedded'; load Gem.bin_path('sass-embedded', 'sass')" -- exe-test3.scss exe-test3.css
+
 $forum-rounded: false;
 $forum-bordered: true;
 $forum-gradient-rounded: true;
@@ -773,6 +775,7 @@ html, html * {
   --pa-online-symbol: "\e70a"; //fi-ss-flower
 
   --block-shadow: Rgba(0, 0, 0, 0.15) 1px 3px 10px 2px;
+  --block-inner-shadow: inset #00000029 1px 1px 10px, #ffffff47 -1px -1px 1px;
 
   --gradient-text-color1: var(--common-link-color);
   --gradient-text-color2: var(--common-accent-color);
@@ -813,6 +816,9 @@ html, html * {
   @if ($forum-rounded) {
     --pun-bg-color: var(--common-secondary-color);
     --border-radius-category: 20px;
+  } @else if $forum-gradient-rounded  {
+    --pun-bg-color: var(--main-bg-color);
+    --border-radius-category: 12px;
   } @else {
     --pun-bg-color: var(--main-bg-color);
     --border-radius-category: 0;
@@ -880,13 +886,13 @@ html, html * {
 
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/91907.png);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/13291.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/19296.png");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/24095.png");
+  --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/19296.png);
+  --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/24095.png);
 
   //--default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/66467.png);
   //--default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/75043.png);
-  //--default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/53370.png");
-  //--default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/61179.png");
+  //--default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/53370.png);
+  //--default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/61179.png);
   --default-avatar-guest-mini: var(--default-avatar-guest);
   --default-avatar-admin-mini: var(--default-avatar-admin);
   --default-avatar-pr-mini: var(--default-avatar-pr);
@@ -926,7 +932,7 @@ html, html * {
   --gradient-text-color2: #4c3619;
   --warning-gradient: linear-gradient(308deg, #63775E -15%, #a19f72 105%);
   --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-          url("https://forumstatic.ru/files/001c/56/64/79796.webp");
+          url(https://forumstatic.ru/files/001c/56/64/79796.webp);
   --common-pattern: url(https://forumstatic.ru/files/001c/56/64/14639.webp);
   --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/95681.webp);
 
@@ -947,8 +953,8 @@ html, html * {
   --logo-glitch-image-size: contain;
 
   --default-avatar-admin-mini: url(https://forumstatic.ru/files/001c/56/64/61884.png);
-  --default-avatar: url("https://forumstatic.ru/files/001c/56/64/98995.png");
-  --default-avatar2: url("https://forumstatic.ru/files/001c/56/64/53986.png");
+  --default-avatar: url(https://forumstatic.ru/files/001c/56/64/98995.png);
+  --default-avatar2: url(https://forumstatic.ru/files/001c/56/64/53986.png);
 
   --announce-heart-color: #e19617;
 
@@ -988,15 +994,15 @@ html, html * {
   --primary-gradient: linear-gradient(52deg, #6d8984 -15%, #496157 105%);
   // BASE
   --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-                   url("https://forumstatic.ru/files/001c/56/64/13978.webp");
+                   url(https://forumstatic.ru/files/001c/56/64/13978.webp);
   @if $isHalloween {
     --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-                     url("https://forumstatic.ru/files/001c/56/64/87054.webp?v=1");
+                     url(https://forumstatic.ru/files/001c/56/64/87054.webp?v=1);
   }
   @if $isNewYear {
      //winter special
     --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-    url("https://forumstatic.ru/files/001c/56/64/76198.webp?v=1");
+    url(https://forumstatic.ru/files/001c/56/64/76198.webp?v=1);
     --pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/60184.webp?v=1);
   }
 
@@ -1028,10 +1034,10 @@ html, html * {
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/70920.png);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/68170.png);
   --default-avatar-admin-mini: url(https://forumstatic.ru/files/001c/56/64/92719.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/92287.png");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/42690.png");
-  --default-avatar: url("https://forumstatic.ru/files/001c/56/64/74641.png");
-  --default-avatar2: url("https://forumstatic.ru/files/001c/56/64/41070.png");
+  --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/92287.png);
+  --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/42690.png);
+  --default-avatar: url(https://forumstatic.ru/files/001c/56/64/74641.png);
+  --default-avatar2: url(https://forumstatic.ru/files/001c/56/64/41070.png);
 
   @include media-breakpoint-down(md) {
     --body-bg-color: #a1b5b0;
@@ -1072,14 +1078,14 @@ html, html * {
   --post-author-bg-size: 55%;
   // BASE
   --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-                   url("https://forumstatic.ru/files/001c/56/64/52394.webp");
+                   url(https://forumstatic.ru/files/001c/56/64/52394.webp);
   --common-pattern: url(https://forumstatic.ru/files/001c/56/64/41413.webp);
   --pa-online-symbol: "\ec8b"; //fi-rr-pumpkin-alt-2
 
   @if $isHalloween {
     // halloween
     --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 55%, transparent) 0, transparent 100%),
-                     url("https://forumstatic.ru/files/001c/56/64/81698.webp?v=1");
+                     url(https://forumstatic.ru/files/001c/56/64/81698.webp?v=1);
     --pa-online-symbol: "\ec8a"; //fi-rr-pumpkin-alt
   }
   @else if $isNewYear {
@@ -1117,10 +1123,10 @@ html, html * {
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/67016.png?v=1);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/71512.png);
   --default-avatar-admin-mini: url(https://forumstatic.ru/files/001c/56/64/81237.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/26362.png?v=1");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/80697.png");
-  --default-avatar: url("https://forumstatic.ru/files/001c/56/64/70590.png?v=1");
-  --default-avatar2: url("https://forumstatic.ru/files/001c/56/64/15941.png");
+  --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/26362.png?v=1);
+  --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/80697.png);
+  --default-avatar: url(https://forumstatic.ru/files/001c/56/64/70590.png?v=1);
+  --default-avatar2: url(https://forumstatic.ru/files/001c/56/64/15941.png);
 
   --announce-heart-color: #c4200b;
 
@@ -1158,11 +1164,11 @@ html, html * {
 
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/66500.png);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/12600.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/76543.png");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/39827.png");
+  --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/76543.png);
+  --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/39827.png);
   --default-avatar: var(--default-avatar-guest);
 
-  --common-pattern: url("https://forumstatic.ru/files/001c/56/64/32648.webp");
+  --common-pattern: url(https://forumstatic.ru/files/001c/56/64/32648.webp);
   --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/32648.webp);
   --announce-bg: var(--announce-bg-image);
   --footer-bg: var(--body-bg-color);
@@ -1170,7 +1176,7 @@ html, html * {
   --body-bg-image: var(--common-pattern);
   @if $isNewYear {
     //Winter special
-    --body-bg-image: url("https://forumstatic.ru/files/001c/56/64/63365.webp?v=1");
+    --body-bg-image: url(https://forumstatic.ru/files/001c/56/64/63365.webp?v=1);
     --pun-status-ornament: url(https://forumstatic.ru/files/001c/56/64/94839.webp?v=1);
     --pa-online-symbol: "\eb30"; //fi-ss-ornament
   } @else if $isValentine {
@@ -1186,6 +1192,8 @@ html, html * {
   --navlinks-border-radius: 20px 20px 0 0;
 
   --announce-heart-color: var(--common-link-color);
+
+  --block-inner-shadow: #00000029 1px 1px 10px inset, #1c111147 -1px -1px 1px;
 }
 
 :root[data-theme="pink"] {
@@ -1216,13 +1224,13 @@ html, html * {
 
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/85014.png);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/11960.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/56/64/66925.png");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/56/64/30924.png");
+  --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/66925.png);
+  --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/30924.png);
   --default-avatar: var(--default-avatar-guest);
 
-  --body-bg-image: url("https://forumstatic.ru/files/001c/56/64/50867.webp");
-  --common-pattern: url("https://forumstatic.ru/files/001c/56/64/45512.webp");
-  --announce-bg-image: url("https://forumstatic.ru/files/001c/56/64/55893.webp");
+  --body-bg-image: url(https://forumstatic.ru/files/001c/56/64/50867.webp);
+  --common-pattern: url(https://forumstatic.ru/files/001c/56/64/45512.webp);
+  --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/55893.webp);
   --announce-bg: var(--announce-bg-image);
   --footer-bg: var(--common-secondary-color) var(--common-pattern);
   --post-author-bg: var(--common-pattern);
@@ -1245,7 +1253,7 @@ html, html * {
   --control-element-bg-hover: #37a3d3;
   --pa-online-symbol: "\e6e9"; // fi-rr-fish
 
-  --body-bg-image: url("https://forumstatic.ru/files/001c/56/64/42497.webp");
+  --body-bg-image: url(https://forumstatic.ru/files/001c/56/64/42497.webp);
 }
 
 :root[data-theme="blue"] {
@@ -1274,16 +1282,16 @@ html, html * {
     --border-gradient-width: 0;
   }
 
-  --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 15%, transparent) 0, transparent 100%), url("https://forumstatic.ru/files/001c/56/64/97804.webp");
-  --announce-bg-image: url("https://forumstatic.ru/files/001c/56/64/17136.webp");
+  --body-bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--body-bg-color) 15%, transparent) 0, transparent 100%), url(https://forumstatic.ru/files/001c/56/64/97804.webp);
+  --announce-bg-image: url(https://forumstatic.ru/files/001c/56/64/17136.webp);
   --announce-bg: var(--common-secondary-color) var(--announce-bg-image) center;
   --announce-btn-bg: linear-gradient(to right, var(--common-border-color2) 32%, transparent 82%);
   --announce-btn-bg: var(--common-border-color2);
   --announce-glow-color: var(--common-border-color2);
-  --category-header-bg-image: url("https://forumstatic.ru/files/001c/56/64/16547.webp");
+  --category-header-bg-image: url(https://forumstatic.ru/files/001c/56/64/16547.webp);
   --category-header-color: var(--category-bg-color);
   --category-header-text-shadow: var(--common-accent-color);
-  --common-pattern: url("https://forumstatic.ru/files/001c/56/64/83952.webp");
+  --common-pattern: url(https://forumstatic.ru/files/001c/56/64/83952.webp);
   --post-author-bg: var(--common-pattern);
   --post-author-bg-size: 100%;
   --footer-bg: var(--common-secondary-color) var(--category-header-bg-image);
@@ -1291,7 +1299,7 @@ html, html * {
   --common-header-color: #9661aa; //#755282;
   --gradient-text-color2: var(--common-header-color);
 
-  --default-avatar-admin: url("https://forumstatic.ru/files/001c/56/64/35640.png");
+  --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/35640.png);
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/98752.png);
   --default-avatar-reader: url(https://forumstatic.ru/files/001c/56/64/73674.png);
   --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/35626.png);
@@ -1783,7 +1791,7 @@ textarea {
 }
 
 textarea {
-  padding: 1rem;
+  padding: .5rem 1rem;
   @include media-breakpoint-down(md) {
     font-size: 16px;
   }
@@ -2698,9 +2706,10 @@ div#profile-signature ul{
       }
       @if $forum-gradient-rounded {
         border: 1px solid transparent;
-        border-radius: var(--border-radius-l);
+        border-radius: var(--border-radius-category);
         background: conic-gradient(var(--category-bg-color) 0 0) padding-box, var(--border-gradient) border-box;
-        box-shadow: var(--block-shadow);
+        box-shadow: inset 3px 0 0 var(--common-accent-color), var(--block-shadow);
+        padding: 0;
       }
     }
     .container > table {
@@ -2715,43 +2724,64 @@ div#profile-signature ul{
         display: block;
         @include media-breakpoint-up(md) {
           @if ($forum-bordered) {
-            padding: var(--base-gap) 0;
-
+            @if not $forum-gradient-rounded {
+              padding: var(--base-gap) 0;
+            } @else {
+              padding: 0;
+            }
           }
         }
         tr {
           display: flex;
           position: relative;
-          &.inew {
-            @if ($forum-bordered and $message-count-border) {
-              &:before {
-                content: " ";
-                border-left: 2px solid var(--common-accent-color);
-                position: absolute;
-                left: -1px;
-                top: -1px;
-                bottom: -1px;
-              }
-            }
+          @if $forum-gradient-rounded {
+            background-color: var(--category-bg-color);
             &:first-child {
-              @include media-breakpoint-up(md) {
-                @if ($forum-bordered) {
-                  &:before {
-                    top: calc(-1 * var(--base-gap));
+              padding-top: var(--base-gap);
+              border-top-left-radius: calc(var(--border-radius-category) - 2px);
+              border-top-right-radius: calc(var(--border-radius-category) - 2px);
+            }
+            &:last-child {
+              padding-bottom: var(--base-gap);
+              border-bottom-left-radius: calc(var(--border-radius-category) - 2px);
+              border-bottom-right-radius: calc(var(--border-radius-category) - 2px);
+            }
+            &.inew {
+              background-color: transparent;
+            }
+          } @else {
+            &.inew {
+              @if ($forum-bordered and $message-count-border) {
+                &:before {
+                  content: " ";
+                  border-left: 2px solid var(--common-accent-color);
+                  position: absolute;
+                  left: -1px;
+                  top: -1px;
+                  bottom: -1px;
+                }
+              }
+              &:first-child {
+                @include media-breakpoint-up(md) {
+                  @if ($forum-bordered) {
+                    &:before {
+                      top: calc(-1 * var(--base-gap));
+                    }
                   }
                 }
               }
-            }
-            &:last-child {
-              @include media-breakpoint-up(md) {
-                @if ($forum-bordered) {
-                  &:before {
-                    bottom: calc(-1 * var(--base-gap));
+              &:last-child {
+                @include media-breakpoint-up(md) {
+                  @if ($forum-bordered) {
+                    &:before {
+                      bottom: calc(-1 * var(--base-gap));
+                    }
                   }
                 }
               }
             }
           }
+
           @include media-breakpoint-down(md) {
             display: block;
             & + tr {
@@ -2827,6 +2857,11 @@ div#profile-signature ul{
             @include gradient-text(var(--gradient-text-color1), var(--gradient-text-color2));
             @extend %gradient-link;
           }
+        }
+      }
+      .inew .tclcon h3 {
+        @if $forum-gradient-rounded {
+          margin-left: calc(3px - var(--pun-padding));
         }
       }
       td.tcr {
@@ -5077,6 +5112,10 @@ div#uploaded-images {
       }
     }
   }
+  #main-reply {
+    box-shadow: var(--block-inner-shadow);
+    border: var(--general-border);
+  }
   #font-area div,
   #size-area div,
   #color-area div,
@@ -5247,7 +5286,7 @@ div#uploaded-images {
   line-height: 0;
   padding: 10px;
   overflow: hidden;
-  box-shadow: inset #00000029 1px 1px 10px, #ffffff47 -1px -1px 1px;
+  box-shadow: var(--block-inner-shadow);
   border-radius: 8px;
   border: var(--general-border);
   > * {
@@ -5516,22 +5555,22 @@ a.pla {
   &[data-event="valentine"] {
     background-size: cover;
     [data-theme="pink"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/38304.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/38304.webp?v=1);
     }
     [data-theme="blue"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/38304.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/38304.webp?v=1);
     }
     [data-theme="green"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/41074.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/41074.webp?v=1);
     }
     [data-theme="fall"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/51307.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/51307.webp?v=1);
     }
     [data-theme="brown"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/51351.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/51351.webp?v=1);
     }
     [data-theme="dark"] & {
-      background-image: url("https://forumstatic.ru/files/001c/56/64/23345.webp?v=1");
+      background-image: url(https://forumstatic.ru/files/001c/56/64/23345.webp?v=1);
     }
   }
 }
@@ -5856,6 +5895,16 @@ a.pla {
     }
     img {
       object-fit: cover;
+      object-position: center top;
+      object-view-box: inset(10%);
+      filter: saturate(0.5);
+      transition: all .3s ease;
+    }
+    a:hover {
+      img {
+        filter: none;
+        object-view-box: inset(5%);
+      }
     }
   }
   .notes-content {
@@ -6607,7 +6656,7 @@ a.pla {
   &-search {
     --inner-height: 75px;
     padding: 10px;
-    box-shadow: inset #00000029 1px 1px 10px, #ffffff47 -1px -1px 1px;
+    box-shadow: var(--block-inner-shadow);
     border-radius: 8px;
     border: var(--general-border);
     @include media-breakpoint-down(md) {
@@ -7116,46 +7165,94 @@ body {
 }
 
 /*** popups ***/
-
-#mask_dialog {
-  .inner {
-    @extend %popup-container-default;
-  }
-  .hv-form-block {
-    padding: 0 .5rem;
-    @include media-breakpoint-down(md) {
-      max-height: calc(90dvh - 235px - 1.2rem);
+#pun {
+  #mask_dialog {
+    .inner {
+      @extend %popup-container-default;
     }
-  }
-  .hv-mask {
-    &-block {
+    .hv-form-block {
+      padding: 0 .5rem;
       @include media-breakpoint-down(md) {
-        display: grid;
-        grid-template-columns: 1fr 1.8fr;
-        grid-template-rows: auto;
+        max-height: calc(90dvh - 235px - 1.2rem);
+        overflow: auto;
       }
     }
-    &-dialog-title {
-      font-size: 1rem;
-      color: var(--common-accent-color);
+    .hv-preview-block {
+      display: block;
+    }
+    .hv-mask {
+      &-block {
+        @include media-breakpoint-down(md) {
+          display: grid;
+          grid-template-columns: 1fr 1.8fr;
+          grid-template-rows: auto;
+        }
+      }
+      &-dialog-title {
+        font-size: 1rem;
+        color: var(--common-accent-color);
+      }
+    }
+    .hv-masks-storage {
+      margin: 0;
+      @include media-breakpoint-down(md) {
+        width: auto;
+        grid-column: 1 / -1;
+        max-height: 90px;
+        flex-wrap: wrap;
+        overflow: auto;
+      }
+    }
+    .hv-storage-count {
+      color: var(--common-muted-color);
+      font-size: var(--small-font-size);
+      width: 100%;
+      text-align: center;
+    }
+    .button {
+      @include simple-button;
+      @include small-button;
+      margin-top: .5rem;
+      padding: 6px 8px;
     }
   }
-  .hv-masks-storage {
-    margin: 0;
+  .hv-control {
+    gap: 6px;
+  }
+  .hvMiniProfileWrapper {
+    width: unset;
+    height: unset;
+  }
+  .hv-editor-preview {
+    background-color: var(--category-bg-color);
+    padding: 6px;
+    width: 230px;
     @include media-breakpoint-down(md) {
-      width: auto;
-      grid-column: 1 / -1;
-      max-height: 90px;
+      width: 430px;
+      padding-left: var(--pun-padding) !important;
+      margin-top: -2px;
     }
-  }
-  .hv-storage-count {
-    color: var(--common-muted-color);
-    font-size: var(--small-font-size);
-  }
-  .button {
-    @include simple-button;
-    @include small-button;
-    margin-top: .5rem;
+    .hv-preview-block {
+      max-height: 360px;
+      @include media-breakpoint-down(md) {
+        padding-top: 20px;
+      }
+      .post-author {
+        border: none;
+        padding: 0;
+        ul {
+          padding: 1rem .7rem; /*as defined */
+          li.pa-fld1,
+          li.pa-author {
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    .hv-editor-preview-clear {
+      margin: 6px auto 0;
+    }
   }
 }
 
@@ -8607,7 +8704,7 @@ span.p-report {
         width: 90%; //chinese | 100
         left: 5%; // chinese
         background-size: contain; // chinese
-        background: url("https://forumstatic.ru/files/001c/56/64/79672.webp?v=1") no-repeat; // chinese new year lantern
+        background: url(https://forumstatic.ru/files/001c/56/64/79672.webp?v=1) no-repeat; // chinese new year lantern
       }
       @else {
         background: url(https://forumstatic.ru/files/001c/56/64/73420.webp?v=1) no-repeat; // new year garland
@@ -9966,7 +10063,12 @@ span.p-report {
     border-bottom-right-radius: 2px;
   }
 }
-.tg-meta { display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin-top: 4px; }
+.tg-meta {
+  display: block;
+  margin-top: 4px;
+  float: right;
+  margin-left: 5px;
+}
 .tg-time { font-size: 0.75em; opacity: 0.7; }
 .tg-checks {
   font-size: 0.85em;
