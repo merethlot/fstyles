@@ -47,6 +47,12 @@ $profiles: (
   reader: 537
 );
 
+//test
+$forum_play: 2, 3, 4;
+
+//wild
+//$forum_play: 6, 7, 8, 9, 20;
+
 //wild
 $clear-themes: 6, 5, 1; // remove 1 = test
 // 6 = news. 5 = deletions
@@ -830,6 +836,7 @@ $theme-colors: (
   --isticky-bg-color: color-mix(in srgb, var(--forum-bg-color) 60%, transparent);
   --header-link-color: var(--main-color);
   --custom-box-bg-color: var(--theme-topic-bg);
+  --custom-box-link-hover: #698c55;
   --action-box-header-bg: var(--theme-topic-secondary-color);
   --action-box-header-color: var(--theme-topic-color);
 
@@ -852,6 +859,13 @@ $theme-colors: (
 
   --reader-link-color: #94a571;
 
+  --tag-explicit-bg: var(--common-contrast-color);
+  --tag-original-bg: var(--control-element-bg-hover);
+  --tag-fandom-bg: var(--control-element-bg);
+  --tag-au-bg: var(--common-accent-color);
+  --tag-fandom2-bg: color-mix(in srgb, var(--control-element-bg) 65%, var(--common-accent-color));
+  --tag-fandom3-bg: color-mix(in srgb, var(--control-element-bg) 55%, var(--common-accent-color));
+
   @if (not $category-h2-spread) {
     --border-gradient-width: 0;
   } @else {
@@ -869,11 +883,11 @@ $theme-colors: (
   
   --pa-online-symbol: "\eb6e"; //fi-ss-paw-claws
 
-  --default-avatar-guest: url(https://forumstatic.ru/files/001c/7f/71/28461.png);
-  --default-avatar-admin: url(https://forumstatic.ru/files/001c/7f/71/69452.png);
-  --default-avatar-pr: url("https://forumstatic.ru/files/001c/7f/71/81800.png");
-  --default-avatar-reader: url("https://forumstatic.ru/files/001c/7f/71/85998.png");
-  --default-avatar: url(https://forumstatic.ru/files/001c/7f/71/28461.png);
+  --default-avatar-guest: url(https://forumstatic.ru/files/001b/ec/ce/91342.png);
+  --default-avatar-admin: url(https://forumstatic.ru/files/001b/ec/ce/12359.png);
+  --default-avatar-pr: url("https://forumstatic.ru/files/001b/ec/ce/86057.png");
+  --default-avatar-reader: url("https://forumstatic.ru/files/001b/ec/ce/86818.png");
+  --default-avatar: url(https://forumstatic.ru/files/001b/ec/ce/91342.png);
 
   --body-bg-image: url("https://forumstatic.ru/files/001b/ec/ce/15422.jpg");
   --announce-bg-image: url("https://forumstatic.ru/files/001c/7f/71/78908.webp");
@@ -929,6 +943,8 @@ $theme-colors: (
 
   --filter-needed-color: #3e503080;
   --needed-caption-bg: #b8b8aa;
+  --preview-link-color: #98a583;
+  --preview-link-hover: #d2d9cb;
 
   @include media-breakpoint-down(lg) {
     --announce-height: 330px;
@@ -991,10 +1007,10 @@ $theme-colors: (
 
   --tbody-padding: 0;
 
-  --post-author-width: 224px;
-  --post-author-padding: 14px;
-  --post-author-bg: var(--theme-input-bg-color);
-  --post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
+  --post-author-width: 196px;
+  --post-box-padding: var(--base-gap);
+  //--post-author-bg: var(--theme-input-bg-color);
+  //--post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
   --post-author-color: var(--main-color);
 
   //--small-font-size: 13px;
@@ -1063,11 +1079,13 @@ $theme-colors: (
   --action-box-header-bg: var(--common-secondary-color);
   --action-box-header-color: var(--common-link-color);
 
-  --post-author-width: 224px;
-  --post-author-padding: 14px;
-  --post-author-bg: var(--theme-input-bg-color);
-  --post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
+  //--post-author-width: 224px;
+  //--post-author-padding: 14px;
+  //--post-author-bg: var(--theme-input-bg-color);
+  //--post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
   --post-author-color: var(--main-color);
+
+  --box-border-multiple: 0px 0px 0px 4px #51544d, 0px 0px 0px 8px #383936;
 
   --announce-posts-bg: color-mix(in srgb, var(--common-secondary-color) 55%, transparent);
 
@@ -1105,6 +1123,7 @@ $theme-colors: (
 
   --announce-bg-image: url("https://forumstatic.ru/files/001c/7f/71/76984.webp");
   --footer-bg: url("https://forumstatic.ru/files/001c/7f/71/76984.webp");
+  --block-guest-bg: url(https://upforme.ru/uploads/001b/ec/ce/267/187367.webp) no-repeat bottom center;
 
   --announce-logo-start-color: #c7aabb;
   --announce-logo-end-color: #6b7f9bd1;
@@ -1131,7 +1150,8 @@ $theme-colors: (
   --pun-bg-color: #b8bfce;
   --header-link-color: #7d5268;
   --header-link-color-hover: #55739f;
-  --custom-box-bg-color: #cccbcc;
+  --custom-box-bg-color: #d5d9e2;
+  --custom-box-link-hover: #ad5e7d;
   --forum-bg-color: transparent;
   --isticky-bg-color: rgba(151, 152, 156, 0.16);
 
@@ -1142,10 +1162,10 @@ $theme-colors: (
 
   --theme-contrast-color: #5c74ad;
   --theme-input-bg-color: #c0c9d8;
-  --theme-check-bg-color: #c1c6b7;
+  --theme-check-bg-color: #a2abc7;
 
   --theme-topic-bg: var(--pun-bg-color);
-  --theme-topic-quote-bg: rgba(200, 206, 209, 0.78);
+  --theme-topic-quote-bg: rgba(213, 217, 226, 0.70);
   --theme-topic-quote-color: #141416;
   --theme-topic-secondary-color: #9aa4bc;
   --theme-topic-link-color: #9e4175; //#455275;
@@ -1157,10 +1177,10 @@ $theme-colors: (
 
   --tbody-padding: 0;
 
-  --post-author-width: 224px;
-  --post-author-padding: 14px;
-  --post-author-bg: var(--theme-input-bg-color);
-  --post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
+  //--post-author-width: 224px;
+  //--post-author-padding: 14px;
+  //--post-author-bg: var(--theme-input-bg-color);
+  //--post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
   --post-author-color: var(--main-color);
 
   --post-highlight-bg: #ac8ba8;
@@ -1178,7 +1198,8 @@ $theme-colors: (
   --reader-link-color: #9f2f68;
   --pun-status-color: var(--main-color);
   --pun-stats-bg: linear-gradient(95deg, #a9b1c7 35%, #b8bfce 65%, #f1d2e2 122%);
-  --block-guest-bg: var(--pun-stats-bg);
+  --preview-link-color: #9e4175;
+  --preview-link-hover: #6679ad;
 
   @include media-breakpoint-down(md) {
     --post-author-padding: 0;
@@ -1186,8 +1207,10 @@ $theme-colors: (
 }
 
 :root[data-theme="winternight"] {
-  //--body-bg-image: url(https://forumstatic.ru/files/001c/7f/71/29418.webp);
-  --body-bg-image: url(https://forumstatic.ru/files/001c/7f/71/40906.webp);
+  --body-bg-image: url(https://forumstatic.ru/files/001b/ec/ce/49784.webp);
+  --announce-bg-image: url("https://forumstatic.ru/files/001b/ec/ce/77618.webp");
+  --footer-bg: url("https://forumstatic.ru/files/001c/7f/71/47955.webp");
+  --block-guest-bg: url(https://upforme.ru/uploads/001b/ec/ce/267/970441.webp) no-repeat bottom center;
 
   --announce-bg-image: url("https://forumstatic.ru/files/001c/7f/71/47955.webp");
   --footer-bg: url("https://forumstatic.ru/files/001c/7f/71/47955.webp");
@@ -1198,6 +1221,9 @@ $theme-colors: (
   --common-link-color: #89abb5; //#7e99a1;
   --common-accent-color: #3a4352;
   --common-contrast-color: #f4ae6482;
+
+  --common-header-color: #628a92;
+  --common-muted-color: #738a9e;
 
   --announce-posts-bg: color-mix(in srgb, var(--common-secondary-color) 55%, transparent);
 
@@ -1227,14 +1253,16 @@ $theme-colors: (
   --box-border-multiple: 0px 0px 0px 4px #393d40, 0px 0px 0px 8px #cfa3bd57;
 
   --custom-box-bg-color: #2c2c36d1;
+  --custom-box-link-hover: #929acc;
+
   --isticky-bg-color: #303032;
   --action-box-header-bg: var(--common-secondary-color);
   --action-box-header-color: var(--common-link-color);
 
-  --post-author-width: 224px;
-  --post-author-padding: 14px;
-  --post-author-bg: var(--theme-input-bg-color);
-  --post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
+  //--post-author-width: 224px;
+  //--post-author-padding: 14px;
+  //--post-author-bg: var(--theme-input-bg-color);
+  //--post-box-padding: 0 var(--base-gap) var(--base-gap) 0;
   --post-author-color: var(--main-color);
 
   --header-link-color: #a8adb0;
@@ -1248,6 +1276,9 @@ $theme-colors: (
   --filter-invert-default-avatar: hue-rotate(210deg);
   --needed-caption-bg: #96aeec;
   --reader-link-color: #6c9fbd;
+
+  --preview-link-color: #738a9e;
+  --preview-link-hover: #7da4c5;
 
   @include media-breakpoint-down(md) {
     --post-author-padding: 0;
@@ -1422,7 +1453,7 @@ li.isactive {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  &-content {
+  &-dialog {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1431,25 +1462,25 @@ li.isactive {
     transform: translate(-50%,-55%);
     transition: all .3s ease-in-out;
     opacity: 0;
-    #episodesModal & {
-      width: 480px;
-    }
   }
   &.show,
   &[style="display: block;"]{
     display: block;
     opacity: 1;
-    .modal-content {
+    .modal-dialog {
       opacity: 1;
       transform: translate(-50%, -50%);
     }
   }
-  &-dialog,
-  #episodesModal &-content {
+  &-content {
     //padding: 30px;
     @extend %popup-container-default;
     max-height: 90vh;
     overflow: auto;
+    #episodesModal & {
+      width: min(600px, 98vw);
+      margin: max(60px, 15%) auto 0;
+    }
   }
   &-footer {
     padding: 10px 0 0;
@@ -2326,9 +2357,11 @@ span.bubble {
       }
     }
     .tc2 {
-      display: block;
       text-align: start;
-      padding-left: 2.2rem; // 1rem icon .4padding .4*2 margin icon
+      @include media-breakpoint-down(md) {
+        display: block;
+        padding-left: 2.2rem; // 1rem icon .4padding .4*2 margin icon
+      }
     }
     .tc3 {
       @include media-breakpoint-up(md) {
@@ -2354,6 +2387,16 @@ span.bubble {
     .intd div.icon {
       margin-left: 0;
       display: none;
+    }
+  }
+  .modal-dialog & {
+    tr {
+      @include media-breakpoint-up(md) {
+        grid-template-columns: 1.7fr 6.5em 1fr;
+      }
+    }
+    td.tcr {
+      font-size: .9rem;
     }
   }
 }
@@ -2908,11 +2951,6 @@ div#profile-signature ul{
           padding: 0;
         }
       }
-      //.post-author {
-      //  ul {
-      //    display: block;
-      //  }
-      //}
     }
   }
   > .container {
@@ -4109,7 +4147,7 @@ div.pun-modal.move_posts_form {
   text-align: center;
   width: var(--post-author-width);
   padding: var(--post-author-padding, 0);
-  background: var(--post-author-bg, none transparent);
+  //background: var(--post-author-bg, none transparent);
   @include media-breakpoint-down(md) {
     width: 100%;
     //padding: 1rem 0;
@@ -4726,7 +4764,8 @@ div#form-buttons {
   #button-keyboard:before {
     //content: "\f11c"; // fa-keyboard
     //font-weight: 400;
-    content: "\eed9"; //f-rr-star
+    //content: "\eed9"; //f-rr-star
+    content: "\e927";
   }
   #button-addition:before {
     //content: "\f0d7"; //fa-caret-down
@@ -4759,14 +4798,16 @@ div#form-buttons {
   }
   #button-sticker:before {
     //content: "\f59b"; //fa-face-laugh-squint
-    content: "\eef2" !important;//fi-rr-sticker
+    //content: "\eef2" !important;//fi-rr-sticker
+    content: "\ee35" !important;
   }
   #button-mask:before {
     //content: "\f630"; //fa-masks-theater
     //content: "\ef9f"; //fi-rr-theater-mask
     @include fi-fontface(ss);
     line-height: 1.4;
-    content: "\eb6d"; // fi-rr-paw
+    //content: "\eb6d"; // fi-rr-paw
+    content: "\ef9f";
   }
   //#button-ChangeСase:before,
   //#button-strike + td:before {
@@ -5532,7 +5573,7 @@ a.pla {
       justify-content: center;
       color: var(--news-header-color);
       font-size: 12px;
-      padding: 10px 1rem 23px;
+      padding: 5px 1rem 28px;
       line-height: 1.1;
       filter: var(--filter-default-avatar, none);
       ul {
@@ -5605,6 +5646,9 @@ a.pla {
     min-height: 100px;
     a {
       @extend %theme-quote-link;
+      &:hover {
+        color: var(--custom-box-link-hover);
+      }
     }
     .tw_tag {
       position: absolute;
@@ -5912,6 +5956,15 @@ a.pla {
   }
 }
 
+#post-preview {
+  a {
+    color: var(--preview-link-color);
+    &:hover {
+      color: var(--preview-link-hover);
+    }
+  }
+}
+
 .charname,
 .fandom {
   width: auto;
@@ -5928,6 +5981,71 @@ a.pla {
   text-transform: uppercase;
 }
 
+/** vtl custom tags **/
+
+.tclcon-tags > span {
+  &:not(:empty) {
+    font-size: 11px;
+    font-family: var(--badge-font);
+    color: var(--control-element-color);
+    background-color: var(--control-element-bg);
+    box-shadow: var(--control-element-box-shadow);
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    .modal & {
+      cursor: default;
+    }
+  }
+  &.explicit {
+    background: var(--tag-explicit-bg);
+  }
+  &.original {
+    background: var(--tag-original-bg);
+  }
+  &.fandom {
+    background: var(--tag-fandom-bg);
+    & + span.fandom {
+      background: var(--tag-fandom2-bg);
+    }
+  }
+  &.au {
+    background: var(--tag-au-bg);
+  }
+  html[data-hide-tags=true] & {
+    display: none;
+  }
+}
+
+.customtags-pagination {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  padding: .4rem;
+  align-items: center;
+  font-size: .9rem;
+}
+
+.hidetags-container {
+  padding: .4rem;
+  font-size: var(--forum-font-size);
+  display: none;
+  @each $forum in $forum_play {
+    #forum_f#{$forum} + & {
+      display: block;
+    }
+  }
+  .show_recent &,
+  .show_replies &,
+  .show_new &,
+  .show_unanswered &,
+  .show_subscriptions &,
+  .show_user_topics &,
+  .search & {
+    display: block;
+  }
+}
 
 /*** end custom blocks ***/
 
