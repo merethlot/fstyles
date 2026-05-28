@@ -1,3 +1,5 @@
+//ruby -rrubygems -e "gem 'sass-embedded'; load Gem.bin_path('sass-embedded', 'sass')" -- wild-test2.scss wild-test2.css
+
 $forum-rounded: true;
 $forum-bordered: false;
 $forum-shadow: false;
@@ -48,10 +50,10 @@ $profiles: (
 );
 
 //test
-$forum_play: 2, 3, 4;
+//$forum_play: 2, 3, 4;
 
 //wild
-//$forum_play: 6, 7, 8, 9, 20;
+$forum_play: 6, 7, 8, 9, 20;
 
 //wild
 $clear-themes: 6, 5, 1; // remove 1 = test
@@ -1479,7 +1481,7 @@ li.isactive {
     overflow: auto;
     #episodesModal & {
       width: min(600px, 98vw);
-      margin: max(60px, 15%) auto 0;
+      margin: 5vh auto 0;
     }
   }
   &-footer {
@@ -5270,6 +5272,11 @@ div#uploaded-images {
 
     }
     #font-area {
+      width: 70%;
+      div {
+        padding: 5px;
+        display: inline-block;
+      }
       span,
       img {
         height: var(--control-link-size);

@@ -2989,6 +2989,9 @@ div#profile-signature ul{
         text-align: justify;
         line-height: 1.45;
         letter-spacing: 0.03em;
+        .custom_tag {
+          text-align: start;
+        }
       }
       .scrollbox {
         overflow: auto;
@@ -3156,6 +3159,7 @@ div#profile-signature ul{
             border-style: none;
             height: auto;
             overflow: hidden;
+            vertical-align: baseline;
             @include media-breakpoint-down(md) {
               display: block;
               width: 100% !important;
@@ -5575,6 +5579,33 @@ a.pla {
   }
 }
 
+.stimeline-item {
+  padding: 10px;
+  color: var(--main-color);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+  border: var(--general-border);
+  box-shadow: var(--control-element-box-shadow);
+  margin: 10px 0;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  background: color-mix(in srgb, var(--common-secondary-color) 20%, var(--main-bg-color));
+  @include media-breakpoint-down(md) {
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr;
+  }
+}
+
+.stimeline-caption {
+  @include media-breakpoint-up(md) {
+    padding-left: .5em;
+  }
+}
+
 [class^="timeline-badge"],
 .timeline-badge {
   position: absolute;
@@ -6095,7 +6126,7 @@ a.pla {
   font-size: var(--small-font-size);
   text-align: center;
   .exequot {
-    padding-top: 8px;
+    //padding-top: 8px;
     text-align: right;
     font-family: var(--h-font2);
     font-weight: bolder;
@@ -8013,14 +8044,58 @@ span.p-report {
   }
 }
 
-.icon-restricted {
+.icon-restricted,
+.icon-paused,
+.icon-processed,
+.icon-closed,
+.icon-completed {
   vertical-align: text-top;
-  color: var(--common-accent-color);
   font-size: 1.2em;
-  margin-left: .25em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  line-height: 1;
   &:after {
     @include fi-fontface(rr);
+  }
+  .stimeline-item & {
+    vertical-align: middle;
+  }
+}
+//
+//.icon-restricted {
+//  vertical-align: text-top;
+//  font-size: 1.2em;
+//}
+
+.icon-restricted {
+  color: var(--common-accent-color);
+  &:after {
     content: "\e03a"; // fi-rr-age-restriction-eighteen
+  }
+}
+
+.icon-paused {
+  &:after {
+    content: "\eb6b"; // fi-rr-pause-circle
+  }
+}
+
+.icon-closed {
+  &:after {
+    content: "\e3d0"; // fi-rr-circle-xmark
+  }
+}
+
+.icon-processed {
+  &:after {
+    content: "\e39d"; // fi-rr-circle-dashed
+  }
+}
+
+.icon-completed {
+  color: var(--common-contrast-color);
+  &:after {
+    content: "\e360"; // fi-rr-check-circle
   }
 }
 
