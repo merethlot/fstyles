@@ -6100,6 +6100,14 @@ a.pla {
     margin: 0 0 0.5rem;
     color: var(--common-header-color);
   }
+  &-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    select {
+      width: 100%;
+    }
+  }
 }
 
 .badge-dryness {
