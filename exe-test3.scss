@@ -242,6 +242,12 @@ $forum-actions-id: 27; //8;
   animation: rotate 8s linear infinite;
 }
 
+@mixin gradient-rounded-border {
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-category);
+  background: conic-gradient(var(--category-bg-color) 0 0) padding-box, var(--border-gradient) border-box;
+}
+
 $fi-fontfaces: (
   rr: uicons-regular-rounded,
   sr: uicons-solid-rounded,
@@ -1700,12 +1706,16 @@ li.isactive {
       margin-left: 0;
     }
   }
+  .forum & {
+    .intd div.icon {
+      margin-left: 0;
+    }
+  }
 }
 
 .tmpl_overlay {
   @extend %modal-backdrop;
 }
-
 
 .close-modal {
   border: none;
@@ -2705,9 +2715,7 @@ div#profile-signature ul{
         box-shadow: var(--block-shadow);
       }
       @if $forum-gradient-rounded {
-        border: 1px solid transparent;
-        border-radius: var(--border-radius-category);
-        background: conic-gradient(var(--category-bg-color) 0 0) padding-box, var(--border-gradient) border-box;
+        @include gradient-rounded-border;
         box-shadow: inset 3px 0 0 var(--common-accent-color), var(--block-shadow);
         padding: 0;
       }
@@ -5998,6 +6006,28 @@ a.pla {
   text-align: start;
 }
 
+.vtl-fortune-toggle {
+  .prediction {
+    border: var(--general-border);
+    margin: 0.9rem 0 .5rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-input);
+    font-family: var(--badge-font);
+    line-height: 1.2;
+    @extend %clearfix;
+    &.empty {
+      text-align: center;
+      color: var(--common-muted-color);
+    }
+  }
+  img {
+    width: 20px;
+    float: right;
+    transform: rotate(27deg);
+    filter: saturate(0.5);
+  }
+}
+
 .fortune-word {
   display: flex;
   gap: 4px;
@@ -6030,6 +6060,92 @@ a.pla {
     content: "Буква ";
     text-transform: none;
   }
+}
+.water-battle {
+  &-summary-list,
+  &-result {
+    @include gradient-rounded-border;
+    box-shadow: var(--block-shadow);
+    padding: 1rem;
+    i {
+      color: var(--common-link-color);
+      font-size: 0.8em;
+    }
+  }
+  &-summary-list {
+    margin: 1rem 0;
+    text-align: start;
+    > div {
+      @include border-divider(bottom);
+      padding: 0.5rem;
+      &:last-child {
+        border: none;
+      }
+    }
+    .inventory {
+      margin-top: 1rem;
+      .wbr-item {
+        margin-right: 0.5rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &-summary-title {
+    text-align: center;
+    font-family: var(--h-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    color: var(--common-header-color);
+  }
+}
+
+.badge-dryness {
+  background: var(--theme-input-bg-color);
+  color: var(--theme-input-color);
+  border-radius: var(--border-radius-l);
+  padding: 0.3em 0.6em;
+  min-width: 54px;
+  text-align: center;
+  margin: 0 0.25rem;
+}
+
+.pa-title .moisture {
+  height: 4px;
+  border-radius: 4px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #7acbe5 0%, #5ab8d5 40%, #147493 100%);
+  .dryness {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: color-mix(in srgb, var(--main-bg-color) 92%, var(--main-color));
+    position: absolute;
+    right: 0;
+  }
+}
+
+.wbr-heading {
+  font-family: var(--h-font);
+  font-weight: 600;
+  color: var(--common-contrast-color);
+  display: block;
+  text-align: right;
+  margin: -7px 0 6px;
+}
+
+.wbr-dryness {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--common-secondary-color);
+  border-radius: var(--border-radius-l);
+  padding: 0.3em 0.6em;
+  min-width: 54px;
+  text-align: center;
 }
 
 /*** end custom blocks ***/
@@ -7192,6 +7308,13 @@ body {
         font-size: 1rem;
         color: var(--common-accent-color);
       }
+      &-element {
+        img {
+          min-width: 52px;
+          min-height: 52px;
+          background: var(--common-secondary-color);
+        }
+      }
     }
     .hv-masks-storage {
       margin: 0;
@@ -8264,6 +8387,59 @@ span.p-report {
   }
 }
 
+.tag-search-chips,
+.tag-search-pinned-chips {
+  white-space: normal;
+  word-wrap: break-word;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 0;
+  max-height: 300px;
+  overflow: auto;
+  > span:not(:empty) {
+    font-size: var(--forum-font-size);
+  }
+}
+
+
+/* hunting items  */
+
+.item-hunt-remaining {
+  &-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem 0;
+    text-align: center;
+    @include media-breakpoint-down(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 0.4rem;
+    }
+  }
+
+  &-title {
+    text-align: center;
+    font-family: var(--h-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    color: var(--common-header-color);
+  }
+
+  &-item {
+    display: grid;
+    justify-items: center;
+    img {
+      width: 60px;
+      aspect-ratio: 1;
+      object-fit: contain;
+      ilter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+  }
+  &-name {
+    font-family: var(--badge-font);
+  }
+}
 
 @if $hasFillCode {
   /* styles for FILL CODE AS FORM  (info: https://github.com/4eDo/mybb/tree/main/fill_code_as_form#readme )*/
@@ -9772,6 +9948,79 @@ span.p-report {
       opacity: 0;
       transform: translateY(-50px) scale(0.8);
     }
+  }
+}
+
+/*** fortune cookies ***/
+
+#forum-fortune-cookie-root {
+  --fc-size: 80px;
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  &.fc-opened {
+    @extend %modal-backdrop;
+    display: block;
+    opacity: 1;
+    pointer-events: all;
+  }
+  .fortune-off & {
+    display: none;
+  }
+}
+
+.fc-fortune-cookie {
+  position: absolute;
+  width: var(--fc-size);
+  aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  transform: rotate(-7deg);
+  //animation: fcCookiePulse 1.2s infinite;
+  user-select: none;
+  &:hover {
+    transform: rotate(0deg) scale(1.05);
+    //animation-duration: 0.9s;
+  }
+
+  &:active {
+    filter: brightness(0.96);
+  }
+  &-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.fc-fortune-card {
+  text-align: center;
+}
+
+.fc-fortune-title {
+  font-weight: 700;
+  color: var(--common-header-color);
+  padding: 0.2rem 0.6rem 0.8rem;
+  margin: 0;
+  @include border-divider(bottom);
+}
+
+@keyframes fcCookiePulse {
+  0%,
+  100% {
+    transform: rotate(-7deg) scale(1);
+  }
+  50% {
+    transform: rotate(-7deg) scale(1.06);
   }
 }
 
