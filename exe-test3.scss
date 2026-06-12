@@ -8135,6 +8135,44 @@ span.p-report {
   }
 }
 
+#heat-war-jsonbin-loader {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: none;
+  background: var(--tag-explicit-bg);
+  color: var(--control-element-color);
+  border: var(--general-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--block-shadow);
+  pointer-events: none;
+}
+.heat-war-jsonbin-loader__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.heat-war-jsonbin-loader__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(226, 232, 240, 0.35);
+  border-top-color: var(--common-accent-color);
+  border-radius: 50%;
+  animation: heatWarJsonBinLoaderSpin 0.8s linear infinite;
+  flex: 0 0 14px;
+}
+@keyframes heatWarJsonBinLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /*** vtl custom profile bg ***/
 
 .post-author {
