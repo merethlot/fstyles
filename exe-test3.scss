@@ -8395,7 +8395,8 @@ span.p-report {
   }
   &-list {
     overflow: auto;
-    max-height: calc(78vh - 88px);
+    max-height: min(450px, 70vh);
+    padding-right: 10px;
   }
 
   &-empty {
