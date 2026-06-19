@@ -1672,7 +1672,7 @@ li.isactive {
     max-width: 95%;
     transition: all .3s ease-in-out;
     &:not(.tmpl_popup) {
-    opacity: 0;
+      opacity: 0;
       transform: translate(-50%,-55%);
     }
     &.tmpl_popup {
@@ -8770,6 +8770,7 @@ span.p-report {
   display: flex;
   gap: var(--base-gap);
   margin: 0 auto 1.5rem;
+  padding-top: 0.5rem;
   .panel {
     flex: 1;
     @extend %popup-container-default;
@@ -8781,7 +8782,8 @@ span.p-report {
   }
 }
 
-#vtlActivistsGenerator {
+#vtlActivistsGenerator,
+#vtlNoticeGenerator {
   .user {
     &-list {
       max-height: 505px;
@@ -8904,7 +8906,28 @@ span.p-report {
   }
 }
 
+#vtlNoticeGenerator {
+  .controls {
+    > label {
+      flex: 1 1 auto;
+      .inputfield,
+      .textfield,
+      select,
+      textarea {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
 
+#noticePreviewContainer {
+  .modal-content {
+    width: 620px;
+    max-width: 95%;
+    margin: 1rem auto 2rem;
+  }
+}
 
 @keyframes previewChange {
   0% { opacity: 0.7; transform: scale(0.95); }
@@ -10619,6 +10642,7 @@ span.p-report {
 .modal-content.login-notification-content {
   min-height: 190px;
   display: grid;
+  position: relative;
   .modal-body {
     display: grid;
   }
