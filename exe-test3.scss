@@ -2120,7 +2120,7 @@ span.bubble {
     ul {
       li {
         text-transform: uppercase;
-        > a {
+        > a:first-child {
           @include gradient-text(var(--gradient-text-color1), var(--gradient-text-color2));
           @extend %gradient-link;
           font-weight: bold;
@@ -2128,7 +2128,7 @@ span.bubble {
           letter-spacing: .03em;
           font-size: 16px;
         }
-        &.isactive > a {
+        &.isactive > a:first-child {
           @include gradient-text(var(--common-link-color), var(--common-contrast-color));
         }
         &#navpm {
@@ -2154,12 +2154,12 @@ span.bubble {
       }
       @include media-breakpoint-down(md) {
         justify-content: space-between;
-        li > a > span {
-          display: none;
-        }
-        li > a {
+        li > a:first-child {
           font-size: 22px;
           letter-spacing: normal;
+          > span {
+            display: none;
+          }
           &:before {
             @include fi-fontface;
             vertical-align: middle;
@@ -2176,7 +2176,7 @@ span.bubble {
         #navsearch > a:before {
           content: "\ed83"; // fi-rr-search
         }
-        #navprofile > a:before {
+        #navprofile > a:first-child:before {
           content: "\f0c9"; //fi-rr-user-pen
         }
         #navpm > a:before {
@@ -8351,23 +8351,23 @@ span.p-report {
 
 #gscript-mvp-notify-link {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   min-width: 22px;
   min-height: 22px;
   aspect-ratio: 1;
   margin-left: 8px;
   text-decoration: none;
   //vertical-align: middle;
+
 }
 .gscript-mvp-notify {
   &-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    text-align: center;
     width: 22px;
     height: 22px;
+    padding: 6px 2px;
+    letter-spacing: normal;
     border-radius: 50%;
     background: var(--gradient-text-color1);
     color: var(--primary-light-color);
