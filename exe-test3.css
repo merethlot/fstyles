@@ -2428,6 +2428,9 @@ div#profile-signature ul {
   line-height: 1.45;
   letter-spacing: 0.03em;
 }
+.post > .container .post-body .post-box .custom_tag {
+  text-align: start;
+}
 .post > .container .post-body .scrollbox {
   overflow: auto;
 }
@@ -2613,6 +2616,7 @@ div#profile-signature ul {
   border-style: none;
   height: auto;
   overflow: hidden;
+  vertical-align: baseline;
 }
 @media (max-width: 767.98px) {
   .post-content table tbody tr td {
@@ -4975,6 +4979,35 @@ a.pla:hover {
   background-image: url(https://forumstatic.ru/files/001c/56/64/23345.webp?v=1);
 }
 
+.stimeline-item {
+  padding: 10px;
+  color: var(--main-color);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+  border: var(--general-border);
+  box-shadow: var(--control-element-box-shadow);
+  margin: 10px 0;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  background: color-mix(in srgb, var(--common-secondary-color) 20%, var(--main-bg-color));
+}
+@media (max-width: 767.98px) {
+  .stimeline-item {
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .stimeline-caption {
+    padding-left: 0.5em;
+  }
+}
+
 [class^=timeline-badge],
 .timeline-badge {
   position: absolute;
@@ -6004,7 +6037,6 @@ a.pla:hover {
   text-align: center;
 }
 .random-content .exequot {
-  padding-top: 8px;
   text-align: right;
   font-family: var(--h-font2);
   font-weight: bolder;
@@ -8217,13 +8249,22 @@ span.p-report {
   content: "\f03e";
 }
 
-.icon-restricted {
+.icon-restricted,
+.icon-paused,
+.icon-processed,
+.icon-closed,
+.icon-completed {
   vertical-align: text-top;
-  color: var(--common-accent-color);
   font-size: 1.2em;
   margin-left: 0.25em;
+  margin-right: 0.25em;
+  line-height: 1;
 }
-.icon-restricted:after {
+.icon-restricted:after,
+.icon-paused:after,
+.icon-processed:after,
+.icon-closed:after,
+.icon-completed:after {
   font-family: uicons-regular-rounded !important;
   font-style: normal;
   font-weight: normal !important;
@@ -8232,7 +8273,39 @@ span.p-report {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.stimeline-item .icon-restricted,
+.stimeline-item .icon-paused,
+.stimeline-item .icon-processed,
+.stimeline-item .icon-closed,
+.stimeline-item .icon-completed {
+  vertical-align: middle;
+}
+
+.icon-restricted {
+  color: var(--common-accent-color);
+}
+.icon-restricted:after {
   content: "\e03a";
+}
+
+.icon-paused:after {
+  content: "\eb6b";
+}
+
+.icon-closed:after {
+  content: "\e3d0";
+}
+
+.icon-processed:after {
+  content: "\e39d";
+}
+
+.icon-completed {
+  color: var(--common-contrast-color);
+}
+.icon-completed:after {
+  content: "\e360";
 }
 
 .container#float-area {
