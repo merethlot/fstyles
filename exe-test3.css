@@ -1533,14 +1533,17 @@ span.bubble:after {
   #pun-navlinks ul {
     justify-content: space-between;
   }
-  #pun-navlinks ul li > a:first-child {
+  #pun-navlinks ul li > a:first-child,
+  #pun-navlinks ul #New-exit {
     font-size: 22px;
     letter-spacing: normal;
   }
-  #pun-navlinks ul li > a:first-child > span {
+  #pun-navlinks ul li > a:first-child > span,
+  #pun-navlinks ul #New-exit > span {
     display: none;
   }
-  #pun-navlinks ul li > a:first-child:before {
+  #pun-navlinks ul li > a:first-child:before,
+  #pun-navlinks ul #New-exit:before {
     font-family: uicons-regular-rounded !important;
     font-style: normal;
     font-weight: normal !important;
@@ -5552,6 +5555,72 @@ a.pla:hover {
   --hot-team-color: #c4200b;
 }
 
+.weather-panel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  backdrop-filter: blur(3px);
+  border-radius: var(--border-radius);
+  background: color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
+  box-shadow: var(--block-shadow);
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  display: grid;
+  gap: 0.25rem;
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--main-color) 35%, transparent);
+}
+@media (max-width: 767.98px) {
+  .weather-panel {
+    bottom: -17px;
+    right: -14px;
+    grid-auto-flow: column;
+  }
+}
+.weather-panel-current-icon {
+  font-size: 22px;
+  text-align: center;
+  opacity: 0.5;
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .weather-panel-current-icon {
+    display: block;
+    line-height: 0;
+  }
+}
+.weather-panel-text {
+  font-size: 12px;
+  grid-column: 2 span;
+}
+@media (max-width: 767.98px) {
+  .weather-panel-text {
+    display: none;
+  }
+}
+.weather-panel-temp {
+  justify-self: flex-end;
+}
+@media (max-width: 767.98px) {
+  .weather-panel-temp i {
+    display: none;
+  }
+}
+
+.effect-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.effect-outer-canvas {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .heat-war-header {
   border: var(--general-border);
   border-radius: var(--border-radius);
@@ -7761,10 +7830,14 @@ span.p-report {
   padding: 6px 2px;
   letter-spacing: normal;
   border-radius: 50%;
-  background: var(--gradient-text-color1);
+  background-image: linear-gradient(151deg, var(--gradient-text-color1) 50%, var(--gradient-text-color2) 50%);
   color: var(--primary-light-color);
   font-size: 10px;
   line-height: 0;
+  opacity: 0.8;
+}
+.gscript-mvp-notify-icon:hover {
+  opacity: 1;
 }
 .gscript-mvp-notify-badge {
   position: absolute;
@@ -7785,7 +7858,7 @@ span.p-report {
 }
 .gscript-mvp-notify-list {
   overflow: auto;
-  max-height: min(450px, 70vh);
+  max-height: calc(85dvh - 140px);
   padding-right: 10px;
 }
 .gscript-mvp-notify-empty {
@@ -7831,10 +7904,16 @@ span.p-report {
   font-size: 11px;
 }
 .gscript-mvp-notify-row-actions button {
-  padding: 0.5rem;
-  line-height: 1;
-  aspect-ratio: 1;
-  font-size: 20px;
+  padding: 0.2rem;
+  background: transparent;
+  color: var(--common-contrast-color);
+  min-height: 0;
+  font-size: var(--small-font-size);
+  border: none;
+  font-family: var(--badge-font);
+}
+.gscript-mvp-notify-row-actions button:hover, .gscript-mvp-notify-row-actions button:active, .gscript-mvp-notify-row-actions button:focus {
+  color: var(--tag-au-bg);
 }
 .gscript-mvp-notify-actions {
   padding: 1rem 0 0.5rem;
@@ -7879,8 +7958,8 @@ span.p-report {
   font-weight: 700;
 }
 .gscript-mvp-mention-suggest {
-  position: fixed;
-  z-index: 100003;
+  position: absolute;
+  transform: translateY(-100%);
   min-width: 190px;
   max-width: min(320px, 100vw - 16px);
   max-height: 220px;
@@ -8186,6 +8265,7 @@ span.p-report {
   display: flex;
   gap: var(--base-gap);
   margin: 0 auto 1.5rem;
+  padding-top: 0.5rem;
 }
 .container-panels .panel {
   flex: 1;

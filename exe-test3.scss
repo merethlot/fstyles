@@ -2154,7 +2154,8 @@ span.bubble {
       }
       @include media-breakpoint-down(md) {
         justify-content: space-between;
-        li > a:first-child {
+        li > a:first-child,
+        #New-exit {
           font-size: 22px;
           letter-spacing: normal;
           > span {
@@ -6185,6 +6186,69 @@ a.pla {
   --hot-team-color: #c4200b;
 }
 
+.weather-panel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  backdrop-filter: blur(3px);
+  border-radius: var(--border-radius);
+  background: color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
+  box-shadow: var(--block-shadow);
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  display: grid;
+  gap: 0.25rem;
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--main-color) 35%, transparent);
+  @include media-breakpoint-down(md) {
+    bottom: -17px;
+    right: -14px;
+    grid-auto-flow: column;
+  }
+  &-current-icon {
+    font-size: 22px;
+    text-align: center;
+    opacity: 0.5;
+    //margin-top: -18px;
+    display: none;
+    @include media-breakpoint-down(md) {
+      display: block;
+      line-height: 0;
+    }
+  }
+
+  &-text {
+    font-size: 12px;
+    grid-column: 2 span;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &-temp {
+    justify-self: flex-end;
+    @include media-breakpoint-down(md) {
+      i {
+        display: none;
+      }
+    }
+  }
+}
+
+.effect-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.effect-outer-canvas {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .heat-war {
   &-header {
     border: var(--general-border);
@@ -8369,10 +8433,14 @@ span.p-report {
     padding: 6px 2px;
     letter-spacing: normal;
     border-radius: 50%;
-    background: var(--gradient-text-color1);
+    background-image: linear-gradient(151deg, var(--gradient-text-color1) 50%, var(--gradient-text-color2) 50%);
     color: var(--primary-light-color);
     font-size: 10px;
     line-height: 0;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &-badge {
@@ -8395,7 +8463,7 @@ span.p-report {
   }
   &-list {
     overflow: auto;
-    max-height: min(450px, 70vh);
+    max-height: calc(85dvh - 140px);
     padding-right: 10px;
   }
 
@@ -8446,10 +8514,18 @@ span.p-report {
 
   &-row-actions {
     button {
-      padding: 0.5rem;
-      line-height: 1;
-      aspect-ratio: 1;
-      font-size: 20px;
+      padding: 0.2rem;
+      background: transparent;
+      color: var(--common-contrast-color);
+      min-height: 0;
+      font-size: var(--small-font-size);
+      border: none;
+      font-family: var(--badge-font);
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--tag-au-bg);
+      }
     }
   }
   &-actions {
@@ -8500,8 +8576,8 @@ span.p-report {
     font-weight: 700;
   }
   &-suggest {
-    position: fixed;
-    z-index: 100003;
+    position: absolute;
+    transform: translateY(-100%);
     min-width: 190px;
     max-width: min(320px, calc(100vw - 16px));
     max-height: 220px;
