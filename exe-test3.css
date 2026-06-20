@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .post-author ul li.pa-author a,
-.post-author ul li.pa-author strong, #pun .punbb .category .container > table .tclcon h3 a, #pun-navlinks ul li.isactive > a:first-child, #pun-navlinks ul li > a:first-child {
+.post-author ul li.pa-author strong, #pun .punbb .category .container > table .tclcon h3 a, #pun-navlinks > ul > li.isactive > a:first-child, #pun-navlinks > ul > li > a:first-child {
   color: transparent;
   background-size: 200%;
   background-position: 50% 50%;
@@ -12,7 +12,7 @@
 }
 
 .post-author ul li.pa-author a:hover,
-.post-author ul li.pa-author strong:hover, #pun .punbb .category .container > table .tclcon h3 a:hover, #pun-navlinks ul li > a:hover:first-child {
+.post-author ul li.pa-author strong:hover, #pun .punbb .category .container > table .tclcon h3 a:hover, #pun-navlinks > ul > li > a:hover:first-child {
   background-position: 0% 50%;
 }
 
@@ -135,7 +135,7 @@
 #pun .punbb .category .container > table td.tcr a + span.byuser, .forum td.tcr a + span.byuser {
   margin-left: -0.25em;
 }
-.container-panels .panel, #dice-form, #List-UserNames, #form-login, .post-body .reactions-root .emoji-mart, #float, div.hvStickerPackModal, #pun #mask_dialog .inner, #vtlSettingsList, .role-search-form,
+.container-panels .panel, #dice-form, .switch-accs-layout, #List-UserNames, #form-login, .post-body .reactions-root .emoji-mart, #float, div.hvStickerPackModal, #pun #mask_dialog .inner, #vtlSettingsList, .role-search-form,
 .idea-search-form, .fs-box #tags .container, #pun-report .inner,
 #pun-reputation .inner,
 #pun-admin-award-form .inner, .punbb .pun-modal .modal-inner, .post > .container .editBookmark, .modal-content {
@@ -145,12 +145,13 @@
   box-shadow: var(--block-shadow);
   max-height: 90dvh;
 }
-.container-panels .panel h1, #dice-form h1, #List-UserNames h1, #form-login h1, .post-body .reactions-root .emoji-mart h1, #float h1, div.hvStickerPackModal h1, #pun #mask_dialog .inner h1, #vtlSettingsList h1, .role-search-form h1,
+.container-panels .panel h1, #dice-form h1, .switch-accs-layout h1, #List-UserNames h1, #form-login h1, .post-body .reactions-root .emoji-mart h1, #float h1, div.hvStickerPackModal h1, #pun #mask_dialog .inner h1, #vtlSettingsList h1, .role-search-form h1,
 .idea-search-form h1, .fs-box #tags .container h1, #pun-report .inner h1,
 #pun-reputation .inner h1,
 #pun-admin-award-form .inner h1, .punbb .pun-modal .modal-inner h1, .post > .container .editBookmark h1, .modal-content h1,
 .container-panels .panel h2,
 #dice-form h2,
+.switch-accs-layout h2,
 #List-UserNames h2,
 #form-login h2,
 .post-body .reactions-root .emoji-mart h2,
@@ -169,16 +170,16 @@ div.hvStickerPackModal h2,
 .modal-content h2 {
   max-width: none;
 }
-.container-panels .panel:has(h1, h2), #dice-form:has(h1, h2), #List-UserNames:has(h1, h2), #form-login:has(h1, h2), .post-body .reactions-root .emoji-mart:has(h1, h2), #float:has(h1, h2), div.hvStickerPackModal:has(h1, h2), #pun #mask_dialog .inner:has(h1, h2), #vtlSettingsList:has(h1, h2), .role-search-form:has(h1, h2),
+.container-panels .panel:has(h1, h2), #dice-form:has(h1, h2), .switch-accs-layout:has(h1, h2), #List-UserNames:has(h1, h2), #form-login:has(h1, h2), .post-body .reactions-root .emoji-mart:has(h1, h2), #float:has(h1, h2), div.hvStickerPackModal:has(h1, h2), #pun #mask_dialog .inner:has(h1, h2), #vtlSettingsList:has(h1, h2), .role-search-form:has(h1, h2),
 .idea-search-form:has(h1, h2), .fs-box #tags .container:has(h1, h2), #pun-report .inner:has(h1, h2),
 #pun-reputation .inner:has(h1, h2),
 #pun-admin-award-form .inner:has(h1, h2), .punbb .pun-modal .modal-inner:has(h1, h2), .post > .container .editBookmark:has(h1, h2), .modal-content:has(h1, h2) {
   padding-top: 0;
 }
-.container-panels .panel h1, #dice-form h1, #List-UserNames h1, #form-login h1, .post-body .reactions-root .emoji-mart h1, #float h1, div.hvStickerPackModal h1, #pun #mask_dialog .inner h1, #vtlSettingsList h1, .role-search-form h1,
+.container-panels .panel h1, #dice-form h1, .switch-accs-layout h1, #List-UserNames h1, #form-login h1, .post-body .reactions-root .emoji-mart h1, #float h1, div.hvStickerPackModal h1, #pun #mask_dialog .inner h1, #vtlSettingsList h1, .role-search-form h1,
 .idea-search-form h1, .fs-box #tags .container h1, #pun-report .inner h1,
 #pun-reputation .inner h1,
-#pun-admin-award-form .inner h1, .punbb .pun-modal .modal-inner h1, .post > .container .editBookmark h1, .modal-content h1, .container-panels .panel h2, #dice-form h2, #List-UserNames h2, #form-login h2, .post-body .reactions-root .emoji-mart h2, #float h2, div.hvStickerPackModal h2, #pun #mask_dialog .inner h2, #vtlSettingsList h2, .role-search-form h2,
+#pun-admin-award-form .inner h1, .punbb .pun-modal .modal-inner h1, .post > .container .editBookmark h1, .modal-content h1, .container-panels .panel h2, #dice-form h2, .switch-accs-layout h2, #List-UserNames h2, #form-login h2, .post-body .reactions-root .emoji-mart h2, #float h2, div.hvStickerPackModal h2, #pun #mask_dialog .inner h2, #vtlSettingsList h2, .role-search-form h2,
 .idea-search-form h2, .fs-box #tags .container h2, #pun-report .inner h2,
 #pun-reputation .inner h2,
 #pun-admin-award-form .inner h2, .punbb .pun-modal .modal-inner h2, .post > .container .editBookmark h2, .modal-content h2 {
@@ -666,6 +667,9 @@ body a {
 body a:hover {
   color: var(--common-accent-color);
   opacity: 1;
+}
+body button {
+  transition: background-color 0.12s linear;
 }
 
 .hidden {
@@ -1498,21 +1502,21 @@ span.bubble:after {
   margin-left: 0;
   margin-right: 0;
 }
-#pun-navlinks ul li {
+#pun-navlinks > ul > li {
   text-transform: uppercase;
 }
-#pun-navlinks ul li > a:first-child {
+#pun-navlinks > ul > li > a:first-child {
   background-image: linear-gradient(151deg, var(--gradient-text-color1) 50%, var(--gradient-text-color2) 50%);
   font-weight: bold;
   font-family: var(--h-font);
   letter-spacing: 0.03em;
   font-size: 16px;
 }
-#pun-navlinks ul li.isactive > a:first-child {
+#pun-navlinks > ul > li.isactive > a:first-child {
   background-image: linear-gradient(151deg, var(--common-link-color) 50%, var(--common-contrast-color) 50%);
 }
 @media (max-width: 767.98px) {
-  #pun-navlinks ul li#navpm span.num_msg {
+  #pun-navlinks > ul > li#navpm span.num_msg {
     font-size: 11px !important;
     min-width: 17px !important;
     display: inline-block;
@@ -1524,26 +1528,26 @@ span.bubble:after {
     margin-top: -1px;
     transform: translateX(-3px);
   }
-  #pun-navlinks ul li#navpm span.num_msg:before {
+  #pun-navlinks > ul > li#navpm span.num_msg:before {
     content: none;
     display: none;
   }
 }
 @media (max-width: 767.98px) {
-  #pun-navlinks ul {
+  #pun-navlinks > ul {
     justify-content: space-between;
   }
-  #pun-navlinks ul li > a:first-child,
-  #pun-navlinks ul #New-exit {
+  #pun-navlinks > ul li > a:first-child,
+  #pun-navlinks > ul #New-exit {
     font-size: 22px;
     letter-spacing: normal;
   }
-  #pun-navlinks ul li > a:first-child > span,
-  #pun-navlinks ul #New-exit > span {
+  #pun-navlinks > ul li > a:first-child > span,
+  #pun-navlinks > ul #New-exit > span {
     display: none;
   }
-  #pun-navlinks ul li > a:first-child:before,
-  #pun-navlinks ul #New-exit:before {
+  #pun-navlinks > ul li > a:first-child:before,
+  #pun-navlinks > ul #New-exit:before {
     font-family: uicons-regular-rounded !important;
     font-style: normal;
     font-weight: normal !important;
@@ -1554,41 +1558,41 @@ span.bubble:after {
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
   }
-  #pun-navlinks ul #navindex > a:before {
+  #pun-navlinks > ul #navindex > a:before {
     content: var(--pa-online-symbol);
   }
-  #pun-navlinks ul #navuserlist > a:before {
+  #pun-navlinks > ul #navuserlist > a:before {
     content: "\f0df";
   }
-  #pun-navlinks ul #navsearch > a:before {
+  #pun-navlinks > ul #navsearch > a:before {
     content: "\ed83";
   }
-  #pun-navlinks ul #navprofile > a:first-child:before {
+  #pun-navlinks > ul #navprofile > a:first-child:before {
     content: "\f0c9";
   }
-  #pun-navlinks ul #navpm > a:before {
+  #pun-navlinks > ul #navpm > a:before {
     content: "\e603";
   }
-  #pun-navlinks ul #navadmin > a:before {
+  #pun-navlinks > ul #navadmin > a:before {
     content: "\eda3";
   }
-  #pun-navlinks ul #navlogout > a:before {
+  #pun-navlinks > ul #navlogout > a:before {
     content: "\ede9";
   }
-  #pun-navlinks ul #navregister > a:before {
+  #pun-navlinks > ul #navregister > a:before {
     content: "\e03a";
   }
-  #pun-navlinks ul #navlogin > a:before {
+  #pun-navlinks > ul #navlogin > a:before {
     content: "\e02c";
   }
-  #pun-navlinks ul #navpr_1 > a:before {
+  #pun-navlinks > ul #navpr_1 > a:before {
     content: "\e1dd";
   }
-  #pun-navlinks ul #navpr_2 > a:before {
+  #pun-navlinks > ul #navpr_2 > a:before {
     content: "\e023";
   }
 }
-#pun-navlinks ul li#navlogout #New-exit {
+#pun-navlinks > ul li#navlogout #New-exit {
   background: transparent;
   position: absolute;
   z-index: 2;
@@ -1596,10 +1600,10 @@ span.bubble:after {
   margin-left: 8px;
   display: inline-block;
 }
-#pun-navlinks ul li#navlogout #New-exit img {
+#pun-navlinks > ul li#navlogout #New-exit img {
   display: none;
 }
-#pun-navlinks ul li#navlogout #New-exit:before {
+#pun-navlinks > ul li#navlogout #New-exit:before {
   font-family: uicons-solid-straight !important;
   font-style: normal;
   font-weight: normal !important;
@@ -1612,7 +1616,7 @@ span.bubble:after {
   color: var(--gradient-text-color2);
 }
 @media (max-width: 767.98px) {
-  #pun-navlinks ul li#navlogout #New-exit {
+  #pun-navlinks > ul li#navlogout #New-exit {
     margin-top: 0;
   }
 }
@@ -7760,6 +7764,138 @@ span.p-report {
 }
 #List-UserNames ul + span .a1-paste {
   float: right;
+}
+
+/*** fast login NEW ***/
+@media (min-width: 768px) {
+  #navlogout,
+  #navlogin {
+    position: relative;
+  }
+}
+
+#switch-accs {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  text-transform: none;
+}
+@media (max-width: 767.98px) {
+  #switch-accs {
+    right: 5vw;
+  }
+}
+#switch-accs-list-panel {
+  display: grid;
+  align-items: start;
+  gap: 0.6rem;
+}
+@media (min-width: 768px) {
+  #switch-accs-list-panel {
+    padding: 0 0.6rem 0 0;
+    border-right: var(--general-border);
+  }
+}
+#switch-accs-list-panel .switch-accs-transfer {
+  align-self: flex-end;
+}
+#switch-accs-list-panel .switch-accs-transfer-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.5rem;
+}
+#switch-accs-list-panel .switch-accs-transfer-field {
+  width: 100%;
+}
+#switch-accs-list-panel .switch-accs-transfer button:hover {
+  background-color: var(--common-secondary-color);
+}
+#switch-accs-list-panel .switch-accs-list {
+  display: grid;
+  justify-content: unset;
+  gap: 0.1rem;
+}
+
+.switch-accs-layout {
+  display: grid;
+  grid-template-areas: "accs-list accs-form";
+  grid-template-columns: 1.4fr 1fr;
+  width: min(425px, 90vw);
+  gap: 0.6rem;
+}
+@media (max-width: 767.98px) {
+  .switch-accs-layout {
+    grid-template-areas: "accs-form" "accs-list";
+    grid-template-columns: auto;
+  }
+}
+.switch-accs-panel-login {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+  align-items: start;
+  grid-area: accs-form;
+}
+.switch-accs-panel-list {
+  grid-area: accs-list;
+}
+.switch-accs-title, .switch-accs-field span {
+  font-size: var(--small-font-size);
+}
+.switch-accs-list li.switch-accs-item {
+  width: 100%;
+  display: flex;
+  background-color: var(--control-element-bg);
+}
+.switch-accs-list li.switch-accs-item:hover {
+  background-color: var(--control-element-bg-hover);
+}
+.switch-accs-list li.switch-accs-item button {
+  background-color: transparent;
+  border: none;
+  color: var(--control-element-color);
+  border-radius: inherit;
+  font-weight: 500;
+}
+@media (max-width: 767.98px) {
+  .switch-accs-field {
+    text-align: left;
+  }
+  .switch-accs-field span {
+    display: inline-block;
+    width: 60px;
+    vertical-align: middle;
+  }
+  .switch-accs-field input {
+    width: calc(100% - 66px);
+    vertical-align: middle;
+  }
+}
+.switch-accs-submit {
+  align-self: flex-end;
+}
+.switch-accs-delete {
+  transition: all 0.2s ease;
+}
+.switch-accs-delete:hover {
+  transform: scale(1.5);
+}
+.switch-accs-empty {
+  font-size: var(--small-font-size);
+  text-align: center;
+  color: var(--common-muted-color);
+}
+.switch-accs-links {
+  font-weight: 500;
+  line-height: 1.25;
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+button.switch-accs-account {
+  flex: 1 0 auto;
+  font-family: var(--h-font);
+  text-align: left;
 }
 
 /*** vtl custom profile bg ***/

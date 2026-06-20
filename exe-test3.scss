@@ -1349,6 +1349,9 @@ body {
       opacity: 1;
     }
   }
+  button {
+    transition: background-color 0.12s linear;
+  }
 }
 
 .hidden {
@@ -2117,8 +2120,8 @@ span.bubble {
       margin-left: 0;
       margin-right: 0;
     }
-    ul {
-      li {
+    > ul {
+      > li {
         text-transform: uppercase;
         > a:first-child {
           @include gradient-text(var(--gradient-text-color1), var(--gradient-text-color2));
@@ -8356,6 +8359,145 @@ span.p-report {
       }
     }
   }
+}
+
+/*** fast login NEW ***/
+
+#navlogout,
+#navlogin {
+  @include media-breakpoint-up(md) {
+    position: relative;
+  }
+}
+
+#switch-accs {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  text-transform: none;
+  @include media-breakpoint-down(md) {
+    right: 5vw;
+  }
+  &-list-panel {
+    display: grid;
+    align-items: start;
+    gap: 0.6rem;
+    @include media-breakpoint-up(md) {
+      padding: 0 0.6rem 0 0;
+      border-right: var(--general-border);
+    }
+    .switch-accs-transfer {
+      align-self: flex-end;
+      &-actions {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 0.5rem;
+      }
+      &-field {
+        width: 100%;
+      }
+      button {
+        &:hover {
+          background-color: var(--common-secondary-color);;
+        }
+      }
+    }
+    .switch-accs-list {
+      display: grid;
+      justify-content: unset;
+      gap: 0.1rem;
+    }
+  }
+}
+
+.switch-accs {
+  &-layout {
+    display: grid;
+    grid-template-areas: 'accs-list accs-form';
+    @extend %popup-container-default;
+    grid-template-columns: 1.4fr 1fr;
+    width: min(425px, 90vw);
+    gap: 0.6rem;
+    @include media-breakpoint-down(md) {
+      grid-template-areas: 'accs-form'
+                           'accs-list';
+      grid-template-columns: auto;
+    }
+  }
+  &-panel {
+    &-login {
+      text-align: center;
+      display: grid;
+      gap: 0.5rem;
+      align-items: start;
+      grid-area: accs-form;
+    }
+    &-list {
+      grid-area: accs-list;
+    }
+  }
+  &-title,
+  &-field span {
+    font-size: var(--small-font-size);
+  }
+  &-list {
+    li.switch-accs-item {
+      width: 100%;
+      display: flex;
+      background-color: var(--control-element-bg);
+      &:hover {
+        background-color: var(--control-element-bg-hover);
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        color: var(--control-element-color);
+
+        border-radius: inherit;
+        font-weight: 500;
+      }
+    }
+  }
+  &-field {
+    @include media-breakpoint-down(md) {
+      text-align: left;
+      span {
+        display: inline-block;
+        width: 60px;
+        vertical-align: middle;
+      }
+      input {
+        width: calc(100% - 66px);
+        vertical-align: middle;
+      }
+    }
+  }
+  &-submit {
+    align-self: flex-end;
+  }
+  &-delete {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+  &-empty {
+    font-size: var(--small-font-size);
+    text-align: center;
+    color: var(--common-muted-color);
+  }
+  &-links {
+    font-weight: 500;
+    line-height: 1.25;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+button.switch-accs-account {
+  flex: 1 0 auto;
+  font-family: var(--h-font);
+  text-align: left;
 }
 
 /*** vtl custom profile bg ***/
