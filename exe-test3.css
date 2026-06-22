@@ -1108,6 +1108,12 @@ textarea {
   }
 }
 
+#form-buttons table,
+.punbb .formal textarea,
+#main-reply {
+  width: 100%;
+}
+
 @media (max-width: 767.98px) {
   input[type=text],
   input[type=email],
@@ -3960,15 +3966,12 @@ div#form-buttons #button-table:before {
   content: "\ef4b";
 }
 div#form-buttons #button-smile:before {
-  content: "\f118";
   content: "\e7b7";
 }
 div#form-buttons #button-keyboard:before {
-  content: "\f11c";
-  content: "\eed9";
+  content: "\ef42";
 }
 div#form-buttons #button-addition:before {
-  content: "\f0d7";
   content: "\e963";
 }
 div#form-buttons #button-files_rusff:before {
@@ -4497,6 +4500,8 @@ div#uploaded-images img {
 .fs-box #tags #keyboard-span input {
   height: 34px;
   min-width: 34px;
+  margin: 1px 1px 0 0;
+  cursor: pointer;
   padding: 2px 4px;
   text-align: center;
   line-height: 1;
@@ -8003,6 +8008,7 @@ button.switch-accs-account {
   font-size: 10px;
   line-height: 0;
   opacity: 0.8;
+  transition: all 0.2s;
 }
 .gscript-mvp-notify-icon:hover {
   opacity: 1;
@@ -9186,6 +9192,41 @@ html[data-hide-tags=true] .tclcon-tags > span {
   font-size: 0.85em;
   margin-bottom: 2px;
   color: var(--common-accent-color);
+}
+
+/** online guests ***/
+.forum-online-guest-icons {
+  margin-top: 7px;
+  --forum-online-guest-color-1: color-mix(in srgb, var(--common-link-color) 75%, var(--common-muted-color) 25%);
+  --forum-online-guest-color-2: color-mix(in srgb, var(--common-link-color) 55%, var(--common-contrast-color) 45%);
+  --forum-online-guest-color-3: color-mix(in srgb, var(--common-muted-color) 65%, var(--common-link-color) 35%);
+  --forum-online-guest-color-4: color-mix(in srgb, var(--common-contrast-color) 65%, var(--common-muted-color) 35%);
+}
+.forum-online-guest-icons.is-inline {
+  margin-top: 0;
+  display: contents;
+}
+
+.forum-online-guest-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: var(--forum-online-guest-color-1);
+  margin-left: 0.4em;
+}
+.forum-online-guest-icon:nth-child(4n+2) {
+  color: var(--forum-online-guest-color-2);
+}
+.forum-online-guest-icon:nth-child(4n+3) {
+  color: var(--forum-online-guest-color-3);
+}
+.forum-online-guest-icon:nth-child(4n+0) {
+  color: var(--forum-online-guest-color-4);
+}
+
+.forum-online-guest-icons:not(.is-inline) .forum-online-guest-icon i {
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=exe-test3.css.map */
