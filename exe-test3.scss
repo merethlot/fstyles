@@ -5104,6 +5104,9 @@ div#uploaded-images {
       #pun-edit & {
         top: 7px;
       }
+      &#float-area {
+        right: unset;
+      }
     }
     #font-area {
       span,
@@ -5136,6 +5139,10 @@ div#uploaded-images {
         color: var(--theme-input-color);
         background-color: var(--theme-input-bg-color);
         border: var(--control-element-border);
+        transition: all 0.2s;
+        &:hover {
+          background-color: var(--common-secondary-color);
+        }
       }
     }
   }
@@ -7810,6 +7817,9 @@ body {
         }
       }
     }
+    .hv-options-list {
+      background: var(--main-bg-color);
+    }
     .hv-masks-storage {
       margin: 0;
       @include media-breakpoint-down(md) {
@@ -7829,8 +7839,9 @@ body {
     .button {
       @include simple-button;
       @include small-button;
-      margin-top: .5rem;
       padding: 6px 8px;
+      min-height: 2.45rem;
+      margin: 0;
     }
   }
   .hv-control {
@@ -7839,6 +7850,27 @@ body {
   .hvMiniProfileWrapper {
     width: unset;
     height: unset;
+  }
+  .hvMiniProfile {
+    border-radius: 6px;
+    img {
+      max-width: 40px;
+      border-radius: 4px;
+      box-shadow: var(--control-element-box-shadow);
+    }
+    &.hv-mask-state:before {
+      top: 0px;
+      right: 0px;
+      width: 8px;
+      height: 8px;
+    }
+    &.hv-mask-state:after {
+      top: -2px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background: var(--common-contrast-color);
+    }
   }
   .hv-editor-preview {
     background-color: var(--category-bg-color);
@@ -7861,8 +7893,8 @@ body {
           padding: 1rem .7rem; /*as defined */
           li.pa-fld1,
           li.pa-author {
-            margin-left: 0;
-            margin-right: 0;
+            margin: 0;
+            border: none;
           }
         }
       }
@@ -9037,10 +9069,6 @@ button.switch-accs-account {
   &:after {
     content: "\e360"; // fi-rr-check-circle
   }
-}
-
-.container#float-area {
-  right: unset;
 }
 
 .custom_tag_float {

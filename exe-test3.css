@@ -4479,6 +4479,9 @@ div#uploaded-images img {
 #pun-edit .fs-box #tags .container {
   top: 7px;
 }
+.fs-box #tags .container#float-area {
+  right: unset;
+}
 .fs-box #tags #font-area span,
 .fs-box #tags #font-area img {
   height: var(--control-link-size);
@@ -4508,6 +4511,10 @@ div#uploaded-images img {
   color: var(--theme-input-color);
   background-color: var(--theme-input-bg-color);
   border: var(--control-element-border);
+  transition: all 0.2s;
+}
+.fs-box #tags #keyboard-span input:hover {
+  background-color: var(--common-secondary-color);
 }
 .fs-box #main-reply {
   box-shadow: var(--block-inner-shadow);
@@ -7097,6 +7104,9 @@ body {
   min-height: 52px;
   background: var(--common-secondary-color);
 }
+#pun #mask_dialog .hv-options-list {
+  background: var(--main-bg-color);
+}
 #pun #mask_dialog .hv-masks-storage {
   margin: 0;
 }
@@ -7144,8 +7154,9 @@ body {
   line-height: 1;
   font-weight: 500;
   white-space: nowrap;
-  margin-top: 0.5rem;
   padding: 6px 8px;
+  min-height: 2.45rem;
+  margin: 0;
 }
 #pun .hv-control {
   gap: 6px;
@@ -7153,6 +7164,27 @@ body {
 #pun .hvMiniProfileWrapper {
   width: unset;
   height: unset;
+}
+#pun .hvMiniProfile {
+  border-radius: 6px;
+}
+#pun .hvMiniProfile img {
+  max-width: 40px;
+  border-radius: 4px;
+  box-shadow: var(--control-element-box-shadow);
+}
+#pun .hvMiniProfile.hv-mask-state:before {
+  top: 0px;
+  right: 0px;
+  width: 8px;
+  height: 8px;
+}
+#pun .hvMiniProfile.hv-mask-state:after {
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: var(--common-contrast-color);
 }
 #pun .hv-editor-preview {
   background-color: var(--category-bg-color);
@@ -7183,8 +7215,8 @@ body {
 }
 #pun .hv-editor-preview .hv-preview-block .post-author ul li.pa-fld1,
 #pun .hv-editor-preview .hv-preview-block .post-author ul li.pa-author {
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+  border: none;
 }
 #pun .hv-editor-preview .hv-editor-preview-clear {
   margin: 6px auto 0;
@@ -8448,10 +8480,6 @@ button.switch-accs-account {
 }
 .icon-completed:after {
   content: "\e360";
-}
-
-.container#float-area {
-  right: unset;
 }
 
 .custom_tag_float[data-float=left] {
