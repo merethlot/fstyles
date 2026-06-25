@@ -1016,12 +1016,7 @@ li.isactive a {
   justify-content: flex-end;
   gap: 20px;
 }
-@media (max-width: 767.98px) {
-  .modal .intd div.icon {
-    margin-left: 0;
-  }
-}
-.forum .modal .intd div.icon {
+.modal .intd div.icon {
   margin-left: 0;
 }
 
@@ -5237,6 +5232,12 @@ a.pla:hover {
 #roles-container .fandom-block {
   margin: 1rem 0;
 }
+#roles-container .fandom-episodes-count {
+  font-family: "Kurale", var(--badge-font);
+  font-size: var(--small-font-size);
+  font-weight: normal;
+  text-transform: none;
+}
 #roles-container .roles-list {
   margin-top: 0.6rem;
   display: grid;
@@ -5265,6 +5266,27 @@ a.pla:hover {
 .role-card:hover {
   background: color-mix(in srgb, var(--common-secondary-color) 40%, transparent);
   color: var(--common-accent-color);
+}
+.role-card .role-icon {
+  font-size: 1.2em;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+  justify-content: center;
+  line-height: 0;
+}
+.role-card .role-icon img {
+  filter: grayscale(0.7) brightness(0.9);
+  border-radius: 4px;
+  opacity: 0.9;
+  transition: 0.2s ease;
+}
+.role-card .role-icon img:hover {
+  filter: none;
+  opacity: 1;
+}
+.role-card .role-name-en {
+  font-weight: bold;
 }
 
 .idea-card {

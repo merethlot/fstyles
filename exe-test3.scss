@@ -1706,16 +1706,16 @@ li.isactive {
     justify-content: flex-end;
     gap: 20px;
   }
-  @include media-breakpoint-down(md) {
+  //@include media-breakpoint-down(md) {
+  //  .intd div.icon {
+  //    margin-left: 0;
+  //  }
+  //}
+  //.forum & {
     .intd div.icon {
       margin-left: 0;
     }
-  }
-  .forum & {
-    .intd div.icon {
-      margin-left: 0;
-    }
-  }
+  //}
 }
 
 .tmpl_overlay {
@@ -5861,6 +5861,12 @@ a.pla {
   .fandom-block {
     margin: 1rem 0;
   }
+  .fandom-episodes-count {
+    font-family: 'Kurale', var(--badge-font);
+    font-size: var(--small-font-size);
+    font-weight: normal;
+    text-transform: none;
+  }
   .roles-list {
     margin-top: .6rem;
     display: grid;
@@ -5886,9 +5892,33 @@ a.pla {
 .role-card {
   border: var(--general-border);
   box-shadow: var(--control-element-box-shadow);
+  transition: 0.3s ease;
+
+  .role-icon {
+    font-size: 1.2em;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+    justify-content: center;
+    line-height: 0;
+    img {
+      filter: grayscale(0.7) brightness(0.9);
+      border-radius: 4px;
+      opacity: 0.9;
+      transition: 0.2s ease;
+
+    }
+  }
   &:hover {
     background: color-mix(in srgb, var(--common-secondary-color) 40%, transparent);
     color: var(--common-accent-color);
+    .role-icon img {
+      filter: none;
+      opacity: 1;
+    }
+  }
+  .role-name-en {
+    font-weight: bold;
   }
 }
 
