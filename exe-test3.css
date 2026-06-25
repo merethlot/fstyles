@@ -5262,10 +5262,13 @@ a.pla:hover {
 .role-card {
   border: var(--general-border);
   box-shadow: var(--control-element-box-shadow);
+  transition: 0.3s ease;
+  position: relative;
 }
-.role-card:hover {
-  background: color-mix(in srgb, var(--common-secondary-color) 40%, transparent);
-  color: var(--common-accent-color);
+.role-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .role-card .role-icon {
   font-size: 1.2em;
@@ -5281,12 +5284,54 @@ a.pla:hover {
   opacity: 0.9;
   transition: 0.2s ease;
 }
-.role-card .role-icon img:hover {
+.role-card:hover {
+  background: color-mix(in srgb, var(--common-secondary-color) 40%, transparent);
+  color: var(--common-accent-color);
+}
+.role-card:hover .role-icon img {
   filter: none;
   opacity: 1;
 }
 .role-card .role-name-en {
   font-weight: bold;
+}
+
+.role-episodes-count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0px 8px;
+  font-family: var(--badge-font);
+  color: var(--gradient-text-color1);
+}
+
+.role-tooltip {
+  position: absolute;
+  padding: 10px;
+  width: 320px;
+  color: var(--main-color);
+  border-radius: var(--border-radius);
+  border: var(--general-border);
+  box-shadow: var(--block-shadow);
+  background: var(--main-bg-color);
+  z-index: 1;
+  text-align: left;
+}
+.role-tooltip .role-tooltip-preview {
+  width: 55px;
+  float: left;
+  margin-right: 8px;
+}
+.role-tooltip-name, .role-tooltip-name-en {
+  display: none;
+}
+.role-tooltip-stat {
+  display: inline-block;
+  margin-right: 0.25em;
+  font-family: var(--badge-font);
+}
+.role-tooltip-stats {
+  margin-top: 8px;
 }
 
 .idea-card {

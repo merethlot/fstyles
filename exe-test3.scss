@@ -5893,7 +5893,12 @@ a.pla {
   border: var(--general-border);
   box-shadow: var(--control-element-box-shadow);
   transition: 0.3s ease;
-
+  position: relative;
+  &-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .role-icon {
     font-size: 1.2em;
     flex-shrink: 0;
@@ -5919,6 +5924,46 @@ a.pla {
   }
   .role-name-en {
     font-weight: bold;
+  }
+}
+
+.role-episodes-count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0px 8px;
+  font-family: var(--badge-font);
+  color: var(--gradient-text-color1);
+}
+
+.role-tooltip {
+  position: absolute;
+  padding: 10px;
+  width: 320px;
+  color: var(--main-color);
+  border-radius: var(--border-radius);
+  border: var(--general-border);
+  box-shadow: var(--block-shadow);
+  background: var(--main-bg-color);
+  z-index: 1;
+  text-align: left;
+  .role-tooltip-preview {
+    width: 55px;
+    float: left;
+    margin-right: 8px;
+  }
+  &-name,
+  &-name-en {
+    display: none;
+  }
+  &-stat {
+    display: inline-block;
+    margin-right: 0.25em;
+    font-family: var(--badge-font);
+  }
+
+  &-stats {
+    margin-top: 8px;
   }
 }
 
