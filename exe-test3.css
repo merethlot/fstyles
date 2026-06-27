@@ -1204,6 +1204,8 @@ button.button {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 input[type=submit].button:hover, input[type=submit].button:focus,
 input[type=button].button:hover,
@@ -1254,6 +1256,8 @@ button.submit {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 input[type=submit].submit:hover, input[type=submit].submit:focus,
 input[type=button].submit:hover,
@@ -1328,6 +1332,8 @@ p.selectfield {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 .btn:hover, .btn:focus {
   color: var(--control-element-color);
@@ -1362,6 +1368,8 @@ p.selectfield {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 .btn-sm:hover, .btn-sm:focus {
   color: var(--control-element-color);
@@ -4100,6 +4108,8 @@ div#uploaded-images img {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 [id=poll-special] > .container input[type=submit]:hover, [id=poll-special] > .container input[type=submit]:focus {
   color: var(--control-element-color);
@@ -4316,6 +4326,8 @@ div#uploaded-images img {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 #viewprofile-next #profile-left #pa-edit a:hover, #viewprofile-next #profile-left #pa-edit a:focus {
   color: var(--control-element-color);
@@ -4746,6 +4758,8 @@ a.pla {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 a.pla:hover, a.pla:focus {
   color: var(--control-element-color);
@@ -5607,6 +5621,16 @@ a.pla:hover {
 }
 .water-battle-modal-body select {
   width: 100%;
+}
+.water-battle-modal-footer {
+  grid-column: 2 span;
+}
+.water-battle-actions button {
+  background: linear-gradient(45deg, #7acbe5 0%, #5ab8d5 40%, #5ab8d5 100%);
+}
+.water-battle .water-refresh-button,
+.water-battle .water-house-button {
+  padding: calc(0.55rem - 1px) calc(0.75rem - 1px);
 }
 
 .badge-dryness,
@@ -6791,6 +6815,8 @@ body {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 #vtlSettingsToggler:hover, #vtlSettingsToggler:focus {
   color: var(--control-element-color);
@@ -7053,6 +7079,8 @@ body {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 .vtl-toggle-btn:hover, .vtl-toggle-btn:focus,
 .vtl-font-size-btn:hover,
@@ -7242,6 +7270,8 @@ body {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 #pun #mask_dialog .button:hover, #pun #mask_dialog .button:focus {
   color: var(--control-element-color);
@@ -7349,6 +7379,8 @@ div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab:hover, div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab:focus {
   color: var(--control-element-color);
@@ -7458,6 +7490,8 @@ input.hvStickerPackModalInput {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 .scroll-buttons .scroll-button:hover, .scroll-buttons .scroll-button:focus {
   color: var(--control-element-color);
@@ -7563,6 +7597,8 @@ input.hvStickerPackModalInput {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 .post-body .reactions-root button.reaction-chip:hover, .post-body .reactions-root button.reaction-chip:focus,
 .post-body .reactions-root [type=button].reaction-chip:hover,
@@ -8384,6 +8420,8 @@ button.switch-accs-account {
   line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
 }
 #dice-form button:hover, #dice-form button:focus {
   color: var(--control-element-color);

@@ -579,6 +579,8 @@ $table-sels: thead, tbody, tr, td, th;
   line-height: 1.25;
   transition: all .3s ease-out;
   cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
   &:hover,
   &:focus {
     color: var(--control-element-color);
@@ -6244,6 +6246,16 @@ a.pla {
   }
   &-modal-footer {
     grid-column: 2 span;
+  }
+  &-actions {
+    button {
+      background: linear-gradient(45deg, #7acbe5 0%, #5ab8d5 40%, var(--cool-team-color) 100%);
+      //background: radial-gradient(ellipse at center, #7acbe5 0%, #5ab8d5 40%, #5ab8d5 100%);
+    }
+  }
+  .water-refresh-button,
+  .water-house-button {
+    padding: calc(0.55rem - 1px) calc(0.75rem - 1px);
   }
 }
 
