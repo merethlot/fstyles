@@ -1917,7 +1917,7 @@ button {
   }
 }
 
-.button + .button {
+.button + .button, {
   margin-left: .5em;
 }
 
@@ -4273,7 +4273,7 @@ div.pun-modal.move_posts_form {
           border: none;
           padding: 0;
           height: var(--fandom-badge-md);
-          //visibility: hidden;
+          overflow: hidden;
         }
       }
       .lz-name {
@@ -5060,6 +5060,9 @@ div#uploaded-images {
     //    font-size: var(--small-font-size);
     //  }
     //}
+  }
+  .button {
+    margin-bottom: 5px;
   }
 }
 
@@ -6195,6 +6198,7 @@ a.pla {
     @include gradient-rounded-border;
     box-shadow: var(--block-shadow);
     padding: 1rem;
+    margin: 0.5rem 0;
     i {
       color: var(--common-link-color);
       font-size: 0.8em;
@@ -6206,8 +6210,10 @@ a.pla {
     > div {
       @include border-divider(bottom);
       padding: 0.5rem;
+      margin-bottom: 0.5rem;
       &:last-child {
         border: none;
+        margin-bottom: 0;
       }
     }
     .inventory {
@@ -6236,9 +6242,16 @@ a.pla {
       width: 100%;
     }
   }
+  &-modal-footer {
+    grid-column: 2 span;
+  }
 }
 
-.badge-dryness {
+.badge-dryness,
+.water-battle-house-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--theme-input-bg-color);
   color: var(--theme-input-color);
   border-radius: var(--border-radius-l);
@@ -6246,10 +6259,11 @@ a.pla {
   min-width: 54px;
   text-align: center;
   margin: 0 0.25rem;
+  font-family: "Kurale", var(--badge-font);
 }
 
 .pa-title .moisture {
-  height: 4px;
+  height: 6px;
   border-radius: 4px;
   margin: 10px 0;
   position: relative;
@@ -6282,6 +6296,36 @@ a.pla {
   padding: 0.3em 0.6em;
   min-width: 54px;
   text-align: center;
+}
+
+.post[data-moisture] {
+  .post-author {
+    ul {
+      @include media-breakpoint-down(md) {
+        grid-template-areas:
+          "pa-avatar pa-author pa-author"
+          'pa-title pa-title pa-title';
+        li.pa-author,
+        .pa-avatar {
+          margin: 0;
+        }
+        li.pa-title {
+          display: block;
+          grid-area: pa-title;
+          margin: 0;
+          padding: 5px 0 0;
+          text-align: left;
+          .moisture {
+            margin: 6px 0 15px;
+          }
+        }
+        li.pa-posts,
+        li.pa-respect {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 /*** heat war ***/
@@ -6686,7 +6730,7 @@ a.pla {
   }
 }
 
-#heat-war-jsonbin-loader {
+.gscript-loader {
   position: fixed;
   top: 16px;
   left: 50%;
@@ -6702,23 +6746,23 @@ a.pla {
   font-weight: 600;
   box-shadow: var(--block-shadow);
   pointer-events: none;
+  &__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  &__spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(226, 232, 240, 0.35);
+    border-top-color: var(--common-accent-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex: 0 0 14px;
+  }
 }
-.heat-war-jsonbin-loader__inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-.heat-war-jsonbin-loader__spinner {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(226, 232, 240, 0.35);
-  border-top-color: var(--common-accent-color);
-  border-radius: 50%;
-  animation: heatWarJsonBinLoaderSpin 0.8s linear infinite;
-  flex: 0 0 14px;
-}
-@keyframes heatWarJsonBinLoaderSpin {
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
@@ -8001,6 +8045,22 @@ div.hvStickerPackModal {
     }
   }
 }
+
+input.hvStickerPackModalAddButton {
+  background: var(--common-secondary-color);
+  border: var(--general-border);
+  min-width: 35px;
+  font-size: 1rem;
+  &.hvStickerPackModalEditButton {
+    font-weight: bolder;
+    font-size: 18px;
+  }
+}
+
+input.hvStickerPackModalInput {
+  border: var(--general-border);
+}
+
 
 .hvStickerPackItem {
  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
@@ -9451,7 +9511,7 @@ button.switch-accs-account {
       width: 60px;
       aspect-ratio: 1;
       object-fit: contain;
-      ilter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.3));
     }
   }
   &-name {

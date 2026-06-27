@@ -3554,6 +3554,7 @@ div.pun-modal.move_posts_form .modal-inner {
     border: none;
     padding: 0;
     height: var(--fandom-badge-md);
+    overflow: hidden;
   }
 }
 .post-author ul li .lz-name {
@@ -4430,6 +4431,9 @@ div#uploaded-images img {
 }
 #pun #post legend span {
   display: none;
+}
+#pun #post .button {
+  margin-bottom: 5px;
 }
 
 .fs-box {
@@ -5557,6 +5561,7 @@ a.pla:hover {
   background: conic-gradient(var(--category-bg-color) 0 0) padding-box, var(--border-gradient) border-box;
   box-shadow: var(--block-shadow);
   padding: 1rem;
+  margin: 0.5rem 0;
 }
 .water-battle-summary-list i, .water-battle-result i {
   color: var(--common-link-color);
@@ -5572,9 +5577,11 @@ a.pla:hover {
   border-image-source: var(--border-gradient-divider);
   border-width: 0 0 1px 0;
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .water-battle-summary-list > div:last-child {
   border: none;
+  margin-bottom: 0;
 }
 .water-battle-summary-list .inventory {
   margin-top: 1rem;
@@ -5602,7 +5609,11 @@ a.pla:hover {
   width: 100%;
 }
 
-.badge-dryness {
+.badge-dryness,
+.water-battle-house-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--theme-input-bg-color);
   color: var(--theme-input-color);
   border-radius: var(--border-radius-l);
@@ -5610,10 +5621,11 @@ a.pla:hover {
   min-width: 54px;
   text-align: center;
   margin: 0 0.25rem;
+  font-family: "Kurale", var(--badge-font);
 }
 
 .pa-title .moisture {
-  height: 4px;
+  height: 6px;
   border-radius: 4px;
   margin: 10px 0;
   position: relative;
@@ -5646,6 +5658,30 @@ a.pla:hover {
   padding: 0.3em 0.6em;
   min-width: 54px;
   text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  .post[data-moisture] .post-author ul {
+    grid-template-areas: "pa-avatar pa-author pa-author" "pa-title pa-title pa-title";
+  }
+  .post[data-moisture] .post-author ul li.pa-author,
+  .post[data-moisture] .post-author ul .pa-avatar {
+    margin: 0;
+  }
+  .post[data-moisture] .post-author ul li.pa-title {
+    display: block;
+    grid-area: pa-title;
+    margin: 0;
+    padding: 5px 0 0;
+    text-align: left;
+  }
+  .post[data-moisture] .post-author ul li.pa-title .moisture {
+    margin: 6px 0 15px;
+  }
+  .post[data-moisture] .post-author ul li.pa-posts,
+  .post[data-moisture] .post-author ul li.pa-respect {
+    display: none;
+  }
 }
 
 /*** heat war ***/
@@ -6029,7 +6065,7 @@ a.pla:hover {
   margin: 8px 0;
 }
 
-#heat-war-jsonbin-loader {
+.gscript-loader {
   position: fixed;
   top: 16px;
   left: 50%;
@@ -6046,25 +6082,23 @@ a.pla:hover {
   box-shadow: var(--block-shadow);
   pointer-events: none;
 }
-
-.heat-war-jsonbin-loader__inner {
+.gscript-loader__inner {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
 }
-
-.heat-war-jsonbin-loader__spinner {
+.gscript-loader__spinner {
   width: 14px;
   height: 14px;
   border: 2px solid rgba(226, 232, 240, 0.35);
   border-top-color: var(--common-accent-color);
   border-radius: 50%;
-  animation: heatWarJsonBinLoaderSpin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
   flex: 0 0 14px;
 }
 
-@keyframes heatWarJsonBinLoaderSpin {
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
@@ -7331,6 +7365,21 @@ div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab {
 }
 div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab.active {
   background: var(--warning-gradient);
+}
+
+input.hvStickerPackModalAddButton {
+  background: var(--common-secondary-color);
+  border: var(--general-border);
+  min-width: 35px;
+  font-size: 1rem;
+}
+input.hvStickerPackModalAddButton.hvStickerPackModalEditButton {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+input.hvStickerPackModalInput {
+  border: var(--general-border);
 }
 
 .hvStickerPackItem {
@@ -8853,7 +8902,7 @@ html[data-hide-tags=true] .tclcon-tags > span {
   width: 60px;
   aspect-ratio: 1;
   object-fit: contain;
-  ilter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.3));
 }
 .item-hunt-remaining-name {
   font-family: var(--badge-font);
