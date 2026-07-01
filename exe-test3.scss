@@ -576,11 +576,11 @@ $table-sels: thead, tbody, tr, td, th;
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
+  //line-height: 1.25;
   transition: all .3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
   &:hover,
   &:focus {
     color: var(--control-element-color);
@@ -1125,6 +1125,7 @@ html, html * {
 
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
 
   --quotes-bg:  color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
   --pun-status-bg: color-mix(in srgb, var(--category-bg-color) 60%, transparent);
@@ -1199,6 +1200,7 @@ html, html * {
   --category-header-padding-top: 5px;
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
 
   --announce-heart-color: var(--common-link-color);
 
@@ -1227,6 +1229,7 @@ html, html * {
   --category-header-padding-top: 5px;
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
   @if (not $category-h2-spread) {
     --border-gradient-width: 0;
   }
@@ -5859,12 +5862,13 @@ a.pla {
 }
 
 #roles-container {
-  h2 {
-    display: block;
-    background-color: transparent;
-  }
   .fandom-block {
     margin: 1rem 0;
+    h2 {
+      display: block;
+      background-color: transparent;
+      padding: 1.3rem 0 0.7rem;
+    }
   }
   .fandom-episodes-count {
     font-family: 'Kurale', var(--badge-font);
@@ -5899,6 +5903,11 @@ a.pla {
   box-shadow: var(--control-element-box-shadow);
   transition: 0.3s ease;
   position: relative;
+  &:first-child:last-child {
+    @include media-breakpoint-up(md) {
+      grid-column: 2;
+    }
+  }
   &-row {
     display: flex;
     align-items: center;
@@ -6200,11 +6209,8 @@ a.pla {
     @include gradient-rounded-border;
     box-shadow: var(--block-shadow);
     padding: 1rem;
-    margin: 0.5rem 0;
-    i {
-      color: var(--common-link-color);
-      font-size: 0.8em;
-    }
+    margin: 22px 0 0.5rem;
+    position: relative;
   }
   &-summary-list {
     margin: 1rem 0;
@@ -6218,15 +6224,9 @@ a.pla {
         margin-bottom: 0;
       }
     }
-    .inventory {
-      margin-top: 1rem;
-      .wbr-item {
-        margin-right: 0.5rem;
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
+  }
+  &-self-summary {
+    margin-bottom: 10px;
   }
   &-summary-title {
     text-align: center;
@@ -6235,6 +6235,17 @@ a.pla {
     font-size: 1.2rem;
     margin: 0 0 0.5rem;
     color: var(--common-header-color);
+  }
+  &-summary-sort {
+    text-align: right;
+    &-button {
+      margin-left: 0.3em;
+      aspect-ratio: 1;
+      line-height: 0;
+      &.is-active {
+        background-color: var(--common-secondary-color);
+      }
+    }
   }
   &-modal-body {
     display: grid;
@@ -6249,13 +6260,30 @@ a.pla {
   }
   &-actions {
     button {
-      background: linear-gradient(45deg, #7acbe5 0%, #5ab8d5 40%, var(--cool-team-color) 100%);
-      //background: radial-gradient(ellipse at center, #7acbe5 0%, #5ab8d5 40%, #5ab8d5 100%);
+      background-image: linear-gradient(7deg, #74b4c9 -10%, #38a4c5 40%, var(--cool-team-color) 100%);
     }
   }
   .water-refresh-button,
   .water-house-button {
     padding: calc(0.55rem - 1px) calc(0.75rem - 1px);
+  }
+}
+
+.water-battle-summary-list,
+.water-battle-result,
+.water-battle-self-summary {
+  .inventory {
+    margin-top: 1rem;
+    .wbr-item {
+      margin-right: 0.5rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  i.fi {
+    color: var(--common-link-color);
+    font-size: 0.8em;
   }
 }
 
@@ -6271,7 +6299,13 @@ a.pla {
   min-width: 54px;
   text-align: center;
   margin: 0 0.25rem;
+}
+.badge-dryness {
   font-family: "Kurale", var(--badge-font);
+}
+
+.water-battle-house-badge {
+  margin-right: 10px;
 }
 
 .pa-title .moisture {
@@ -6297,7 +6331,10 @@ a.pla {
   color: var(--common-contrast-color);
   display: block;
   text-align: right;
-  margin: -7px 0 6px;
+  position: absolute;
+  top: -22px;
+  right: 5px;
+  height: 20px;
 }
 
 .wbr-dryness {
@@ -6843,11 +6880,11 @@ a.pla {
   font-size: var(--small-font-size);
   text-align: center;
   .exequot {
-    //padding-top: 8px;
+    padding-top: 2px;
     text-align: right;
     font-family: var(--h-font2);
     font-weight: bolder;
-    //font-style: italic;
+    letter-spacing: 0.03em;
     a {
       &:before {
         content: "~";
@@ -6869,7 +6906,7 @@ a.pla {
 .announce-preview {
   --logo-width: 470px;
   //--logo-height: 120px;
-  --logo-height: Min(120px, 13.5vw);
+  --logo-height: Min(130px, 13.5vw);
   --chars-width: 75px;
   --chars-avatar-size: 50px;
   --announce-btn-height: 2.1rem;
@@ -6879,6 +6916,29 @@ a.pla {
     --logo-height: 90px;
   }
 }
+
+.posts-summary {
+  position: absolute;
+  bottom: var(--posts-summary-bottom, 48px);
+  z-index: 1;
+  left: var(--pun-padding);
+  padding: 0.25rem 0.5rem;
+  backdrop-filter: blur(3px);
+  border-radius: var(--border-radius);
+  background: color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
+  box-shadow: var(--block-shadow);
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  display: grid;
+  gap: 0.25rem;
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--main-color) 35%, transparent);
+  color: var(--main-color);
+  font-family: var(--badge-font);
+  font-size: 1.05rem;
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
 .announce {
   height: var(--announce-height);
   position: relative;
@@ -7184,7 +7244,7 @@ a.pla {
       background: var(--logo-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: Min(145px, 13.5vw);
+      font-size: Min(155px, 13.5vw);
       line-height: 1;
       //opacity: .8;
       //font-family: var(--h-font2);
@@ -7199,7 +7259,8 @@ a.pla {
       ///* font-family: Cabin Sketch; */
       ///* font-family: Dorsa; */
       //font-family: 'Amarante';
-      font-family: "BKR Racacosta", serif;
+      //font-family: "BKR Racacosta", serif;
+      font-family: "Recolors", serif;
       @include media-breakpoint-down(lg) {
         padding-left: 25px;
       }
@@ -7246,10 +7307,10 @@ a.pla {
     }
     @media (hover: hover) {
       &:hover .logo-start {
-        transform: translate(-7px, 5px);
+        transform: translate(-11px, 5px);
       }
       &:hover .logo-end {
-        transform: translate(7px, -5px);
+        transform: translate(11px, -3px);
       }
     }
     &-wrapper {
@@ -7343,10 +7404,13 @@ a.pla {
       z-index: 1;
       a {
         display: block;
-        //overflow: hidden;
         width: 100%;
         height: 100%;
-        filter: grayscale(0.45) contrast(0.9);
+        overflow: hidden;
+        outline: var(--general-border);
+        border-radius: 50%;
+        outline-offset: 3px;
+        box-shadow: var(--control-element-box-shadow);
       }
       img {
         display: block;
@@ -7354,12 +7418,8 @@ a.pla {
         height: 100%;
         object-fit: cover;
         object-position: center;
-        transition-duration: .5s;
-        transition-timing-function: ease-in;
-        outline: var(--general-border);
-        border-radius: 50%;
-        outline-offset: 3px;
-        box-shadow: var(--control-element-box-shadow);
+        filter: grayscale(0.45) contrast(0.9);
+        transition: all 0.35s ease-in;
       }
       em {
         position: absolute;
@@ -7384,9 +7444,9 @@ a.pla {
       }
       &:hover {
         img {
-          //transform: scale(1.5);
-          //filter: none;
-          animation: crtshake 2.5s linear infinite;
+          transform: scale(1.1);
+          filter: none;
+          //animation: crtshake 2.5s linear infinite;
         }
         em {
           transform: translate(-50%, 100%);
@@ -8377,6 +8437,12 @@ span.p-report {
   margin-top: -7px; //fix parent padding
 }
 
+.jGrowl-message {
+  a {
+    color: color-mix(in srgb, var(--common-link-color) 20%, #ffffff);
+  }
+}
+
 /*** new messages bubble ***/
 
 #pun {
@@ -8935,7 +9001,7 @@ button.switch-accs-account {
 
 .gscript-mvp-mention {
   &-link {
-    font-weight: 700;
+    //font-weight: 700;
   }
   &-suggest {
     position: absolute;
@@ -9239,6 +9305,25 @@ button.switch-accs-account {
   .isadmin &{
     display: inline-block;
   }
+}
+
+img[src*="is.gd/ekiTPp"],
+img[alt*="hide-autor"] {
+  display: none !important;
+}
+
+.post.hideprofile-post .post-author,
+.post.hideprofile-post .post-sig,
+.post.hideprofile-post .pl-email,
+.post.hideprofile-post .pl-website {
+  display: none !important;
+}
+
+.post.hideprofile-post .post-body,
+.post.hideprofile-post .post-links,
+.post.hideprofile-post .post-links ul,
+.post.hideprofile-post h3 > span {
+  margin-left: 0 !important;
 }
 
 /** vtl activists generator **/

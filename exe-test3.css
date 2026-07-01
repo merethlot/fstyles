@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 .post-author ul li.pa-author a,
 .post-author ul li.pa-author strong, #pun .punbb .category .container > table .tclcon h3 a, #pun-navlinks > ul > li.isactive > a:first-child, #pun-navlinks > ul > li > a:first-child {
   color: transparent;
@@ -476,6 +476,7 @@ html, html * {
   --post-author-bg: var(--common-secondary-color) var(--common-pattern);
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
   --quotes-bg: color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
   --pun-status-bg: color-mix(in srgb, var(--category-bg-color) 60%, transparent);
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/67016.png?v=1);
@@ -533,6 +534,7 @@ html, html * {
   --category-header-padding-top: 5px;
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
   --announce-heart-color: var(--common-link-color);
   --block-inner-shadow: #00000029 1px 1px 10px inset, #1c111147 -1px -1px 1px;
 }
@@ -559,6 +561,7 @@ html, html * {
   --category-header-padding-top: 5px;
   --navlinks-bg: var(--category-bg-color);
   --navlinks-border-radius: 20px 20px 0 0;
+  --posts-summary-bottom: 52px;
   --default-avatar-guest: url(https://forumstatic.ru/files/001c/56/64/85014.png);
   --default-avatar-admin: url(https://forumstatic.ru/files/001c/56/64/11960.png);
   --default-avatar-pr: url(https://forumstatic.ru/files/001c/56/64/66925.png);
@@ -1201,11 +1204,10 @@ button.button {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 input[type=submit].button:hover, input[type=submit].button:focus,
 input[type=button].button:hover,
@@ -1253,11 +1255,10 @@ button.submit {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 input[type=submit].submit:hover, input[type=submit].submit:focus,
 input[type=button].submit:hover,
@@ -1329,11 +1330,10 @@ p.selectfield {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 .btn:hover, .btn:focus {
   color: var(--control-element-color);
@@ -1365,11 +1365,10 @@ p.selectfield {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 .btn-sm:hover, .btn-sm:focus {
   color: var(--control-element-color);
@@ -4105,11 +4104,10 @@ div#uploaded-images img {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 [id=poll-special] > .container input[type=submit]:hover, [id=poll-special] > .container input[type=submit]:focus {
   color: var(--control-element-color);
@@ -4323,11 +4321,10 @@ div#uploaded-images img {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 #viewprofile-next #profile-left #pa-edit a:hover, #viewprofile-next #profile-left #pa-edit a:focus {
   color: var(--control-element-color);
@@ -4755,11 +4752,10 @@ a.pla {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 a.pla:hover, a.pla:focus {
   color: var(--control-element-color);
@@ -5243,12 +5239,13 @@ a.pla:hover {
   margin-bottom: 1rem;
 }
 
-#roles-container h2 {
-  display: block;
-  background-color: transparent;
-}
 #roles-container .fandom-block {
   margin: 1rem 0;
+}
+#roles-container .fandom-block h2 {
+  display: block;
+  background-color: transparent;
+  padding: 1.3rem 0 0.7rem;
 }
 #roles-container .fandom-episodes-count {
   font-family: "Kurale", var(--badge-font);
@@ -5282,6 +5279,11 @@ a.pla:hover {
   box-shadow: var(--control-element-box-shadow);
   transition: 0.3s ease;
   position: relative;
+}
+@media (min-width: 768px) {
+  .role-card:first-child:last-child {
+    grid-column: 2;
+  }
 }
 .role-card-row {
   display: flex;
@@ -5575,11 +5577,8 @@ a.pla:hover {
   background: conic-gradient(var(--category-bg-color) 0 0) padding-box, var(--border-gradient) border-box;
   box-shadow: var(--block-shadow);
   padding: 1rem;
-  margin: 0.5rem 0;
-}
-.water-battle-summary-list i, .water-battle-result i {
-  color: var(--common-link-color);
-  font-size: 0.8em;
+  margin: 22px 0 0.5rem;
+  position: relative;
 }
 .water-battle-summary-list {
   margin: 1rem 0;
@@ -5597,14 +5596,8 @@ a.pla:hover {
   border: none;
   margin-bottom: 0;
 }
-.water-battle-summary-list .inventory {
-  margin-top: 1rem;
-}
-.water-battle-summary-list .inventory .wbr-item {
-  margin-right: 0.5rem;
-}
-.water-battle-summary-list .inventory .wbr-item:last-child {
-  margin-right: 0;
+.water-battle-self-summary {
+  margin-bottom: 10px;
 }
 .water-battle-summary-title {
   text-align: center;
@@ -5613,6 +5606,17 @@ a.pla:hover {
   font-size: 1.2rem;
   margin: 0 0 0.5rem;
   color: var(--common-header-color);
+}
+.water-battle-summary-sort {
+  text-align: right;
+}
+.water-battle-summary-sort-button {
+  margin-left: 0.3em;
+  aspect-ratio: 1;
+  line-height: 0;
+}
+.water-battle-summary-sort-button.is-active {
+  background-color: var(--common-secondary-color);
 }
 .water-battle-modal-body {
   display: grid;
@@ -5626,11 +5630,33 @@ a.pla:hover {
   grid-column: 2 span;
 }
 .water-battle-actions button {
-  background: linear-gradient(45deg, #7acbe5 0%, #5ab8d5 40%, #5ab8d5 100%);
+  background-image: linear-gradient(7deg, #74b4c9 -10%, #38a4c5 40%, var(--cool-team-color) 100%);
 }
 .water-battle .water-refresh-button,
 .water-battle .water-house-button {
   padding: calc(0.55rem - 1px) calc(0.75rem - 1px);
+}
+
+.water-battle-summary-list .inventory,
+.water-battle-result .inventory,
+.water-battle-self-summary .inventory {
+  margin-top: 1rem;
+}
+.water-battle-summary-list .inventory .wbr-item,
+.water-battle-result .inventory .wbr-item,
+.water-battle-self-summary .inventory .wbr-item {
+  margin-right: 0.5rem;
+}
+.water-battle-summary-list .inventory .wbr-item:last-child,
+.water-battle-result .inventory .wbr-item:last-child,
+.water-battle-self-summary .inventory .wbr-item:last-child {
+  margin-right: 0;
+}
+.water-battle-summary-list i.fi,
+.water-battle-result i.fi,
+.water-battle-self-summary i.fi {
+  color: var(--common-link-color);
+  font-size: 0.8em;
 }
 
 .badge-dryness,
@@ -5645,7 +5671,14 @@ a.pla:hover {
   min-width: 54px;
   text-align: center;
   margin: 0 0.25rem;
+}
+
+.badge-dryness {
   font-family: "Kurale", var(--badge-font);
+}
+
+.water-battle-house-badge {
+  margin-right: 10px;
 }
 
 .pa-title .moisture {
@@ -5671,7 +5704,10 @@ a.pla:hover {
   color: var(--common-contrast-color);
   display: block;
   text-align: right;
-  margin: -7px 0 6px;
+  position: absolute;
+  top: -22px;
+  right: 5px;
+  height: 20px;
 }
 
 .wbr-dryness {
@@ -6178,9 +6214,11 @@ a.pla:hover {
   text-align: center;
 }
 .random-content .exequot {
+  padding-top: 2px;
   text-align: right;
   font-family: var(--h-font2);
   font-weight: bolder;
+  letter-spacing: 0.03em;
 }
 .random-content .exequot a:before {
   content: "~";
@@ -6196,7 +6234,7 @@ a.pla:hover {
 #html-header,
 .announce-preview {
   --logo-width: 470px;
-  --logo-height: Min(120px, 13.5vw);
+  --logo-height: Min(130px, 13.5vw);
   --chars-width: 75px;
   --chars-avatar-size: 50px;
   --announce-btn-height: 2.1rem;
@@ -6208,6 +6246,30 @@ a.pla:hover {
   .announce-preview {
     --logo-width: 320px;
     --logo-height: 90px;
+  }
+}
+
+.posts-summary {
+  position: absolute;
+  bottom: var(--posts-summary-bottom, 48px);
+  z-index: 1;
+  left: var(--pun-padding);
+  padding: 0.25rem 0.5rem;
+  backdrop-filter: blur(3px);
+  border-radius: var(--border-radius);
+  background: color-mix(in srgb, var(--common-secondary-color) 70%, transparent);
+  box-shadow: var(--block-shadow);
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  display: grid;
+  gap: 0.25rem;
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--main-color) 35%, transparent);
+  color: var(--main-color);
+  font-family: var(--badge-font);
+  font-size: 1.05rem;
+}
+@media (max-width: 767.98px) {
+  .posts-summary {
+    display: none;
   }
 }
 
@@ -6478,11 +6540,11 @@ a.pla:hover {
   background: var(--logo-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: min(145px, 13.5vw);
+  font-size: min(155px, 13.5vw);
   line-height: 1;
   transition: all 0.25s ease-in;
   text-transform: uppercase;
-  font-family: "BKR Racacosta", serif;
+  font-family: "Recolors", serif;
 }
 @media (max-width: 991.98px) {
   .announce .logo-start, .announce .logo-end {
@@ -6520,10 +6582,10 @@ a.pla:hover {
 }
 @media (hover: hover) {
   .announce .logo:hover .logo-start {
-    transform: translate(-7px, 5px);
+    transform: translate(-11px, 5px);
   }
   .announce .logo:hover .logo-end {
-    transform: translate(7px, -5px);
+    transform: translate(11px, -3px);
   }
 }
 .announce .logo-wrapper {
@@ -6595,7 +6657,11 @@ a.pla:hover {
   display: block;
   width: 100%;
   height: 100%;
-  filter: grayscale(0.45) contrast(0.9);
+  overflow: hidden;
+  outline: var(--general-border);
+  border-radius: 50%;
+  outline-offset: 3px;
+  box-shadow: var(--control-element-box-shadow);
 }
 .announce .character-wrapper img, .announce-preview .character-wrapper img {
   display: block;
@@ -6603,12 +6669,8 @@ a.pla:hover {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in;
-  outline: var(--general-border);
-  border-radius: 50%;
-  outline-offset: 3px;
-  box-shadow: var(--control-element-box-shadow);
+  filter: grayscale(0.45) contrast(0.9);
+  transition: all 0.35s ease-in;
 }
 .announce .character-wrapper em, .announce-preview .character-wrapper em {
   position: absolute;
@@ -6632,7 +6694,8 @@ a.pla:hover {
   opacity: 0;
 }
 .announce .character-wrapper:hover img, .announce-preview .character-wrapper:hover img {
-  animation: crtshake 2.5s linear infinite;
+  transform: scale(1.1);
+  filter: none;
 }
 .announce .character-wrapper:hover em, .announce-preview .character-wrapper:hover em {
   transform: translate(-50%, 100%);
@@ -6812,11 +6875,10 @@ body {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 #vtlSettingsToggler:hover, #vtlSettingsToggler:focus {
   color: var(--control-element-color);
@@ -7076,11 +7138,10 @@ body {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 .vtl-toggle-btn:hover, .vtl-toggle-btn:focus,
 .vtl-font-size-btn:hover,
@@ -7267,11 +7328,10 @@ body {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 #pun #mask_dialog .button:hover, #pun #mask_dialog .button:focus {
   color: var(--control-element-color);
@@ -7376,11 +7436,10 @@ div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab:hover, div.hvStickerPackModal .hvStickerPackModalTabs .hvStickerPackModalTab:focus {
   color: var(--control-element-color);
@@ -7487,11 +7546,10 @@ input.hvStickerPackModalInput {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 .scroll-buttons .scroll-button:hover, .scroll-buttons .scroll-button:focus {
   color: var(--control-element-color);
@@ -7594,11 +7652,10 @@ input.hvStickerPackModalInput {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 .post-body .reactions-root button.reaction-chip:hover, .post-body .reactions-root button.reaction-chip:focus,
 .post-body .reactions-root [type=button].reaction-chip:hover,
@@ -7779,6 +7836,10 @@ span.p-report {
 
 .jGrowl-notification .jGrowl-close {
   margin-top: -7px;
+}
+
+.jGrowl-message a {
+  color: color-mix(in srgb, var(--common-link-color) 20%, #ffffff);
 }
 
 /*** new messages bubble ***/
@@ -8312,9 +8373,6 @@ button.switch-accs-account {
   font-size: 12px;
 }
 
-.gscript-mvp-mention-link {
-  font-weight: 700;
-}
 .gscript-mvp-mention-suggest {
   position: absolute;
   transform: translateY(-100%);
@@ -8417,11 +8475,10 @@ button.switch-accs-account {
   font-size: 1rem;
   padding: calc(0.55rem - 1px) calc(1.5rem - 1px);
   font-weight: 500;
-  line-height: 1.25;
   transition: all 0.3s ease-out;
   cursor: pointer;
   line-height: 1;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 #dice-form button:hover, #dice-form button:focus {
   color: var(--control-element-color);
@@ -8655,6 +8712,25 @@ button.switch-accs-account {
 }
 .isadmin .custom_tag_eventimg {
   display: inline-block;
+}
+
+img[src*="is.gd/ekiTPp"],
+img[alt*=hide-autor] {
+  display: none !important;
+}
+
+.post.hideprofile-post .post-author,
+.post.hideprofile-post .post-sig,
+.post.hideprofile-post .pl-email,
+.post.hideprofile-post .pl-website {
+  display: none !important;
+}
+
+.post.hideprofile-post .post-body,
+.post.hideprofile-post .post-links,
+.post.hideprofile-post .post-links ul,
+.post.hideprofile-post h3 > span {
+  margin-left: 0 !important;
 }
 
 /** vtl activists generator **/
